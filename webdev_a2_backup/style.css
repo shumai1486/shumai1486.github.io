@@ -1,0 +1,232 @@
+@font-face {
+    font-family: 'Amoria';
+    src: url('./fonts/amoria.otf') format('truetype');
+}
+
+.page{width:95vw;}
+nav ul li{display:inline;}
+#page1{
+    background:darkcyan;
+    position: relative;
+}
+#page2{background:darkcyan}
+#page3{background:darkcyan}
+#page4{background:darkcyan}
+#page5{background:darkcyan}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+button {
+    background:rgb(0, 197, 197);
+    color: rgb(255, 252, 244);
+    border: none;
+    padding: 3%;
+    height: 100%;
+    border-radius: 0.5rem; /* rounded corners */
+    cursor: pointer; /* cursor changes on hover */
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: rgb(0, 143, 143); /* darker when hovered */
+}
+
+#page2btn {
+    background:rgb(231, 189, 0);
+}
+#page2btn:hover {
+    background-color: rgb(231, 154, 0);
+}
+
+#page3btn {
+    background:rgb(255, 138, 191);
+}
+#page3btn:hover {
+    background-color: rgb(223, 100, 155);
+}
+
+#page4btn {
+    background:rgb(255, 127, 127);
+}
+#page4btn:hover {
+    background-color: rgb(237, 96, 96);
+}
+
+#page5btn {
+    background:rgb(146, 138, 255);
+}
+#page5btn:hover {
+    background-color: rgb(123, 115, 234);
+}
+
+
+body {
+    background-color: rgb(255, 252, 244);
+    color: rgb(255, 252, 244);
+    font-size: 100%;
+}
+
+header {
+    background-color: rgb(36, 113, 106);
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1%;
+}
+
+#mainpageheader {
+    background-color: rgb(255, 252, 244);
+    color: rgb(36, 113, 106);
+    padding:0%;
+}
+
+/* flex for nav and main */
+.content {
+    display: flex;
+    align-items: flex-start;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+#contentnav {
+    background-color: darkcyan;
+    color:rgb(255, 252, 244);
+    justify-content: left;
+    text-align: center;
+    flex-direction: column;
+    width:30%;
+    position: sticky;
+    top: 0;
+}
+#contentnav ul {
+    flex-direction: column;
+    padding-left: 1%;
+}
+
+main {
+    background-color: rgb(255, 252, 244);
+    color: rgb(36, 113, 106);
+    width: 70%;
+    padding: 2%;
+}
+
+h1 {
+    font-family: 'Amoria', sans-serif;
+    color: rgb(255, 252, 244);
+    text-align: center;
+    font-size: 3.5em;
+}
+h2 {
+    font-family: 'Amoria', sans-serif;
+    font-size: 2.5em;
+    margin: 1%;
+}
+h3 {
+    font-size: 1.5em;
+    margin: 1%;
+    padding: 1%;
+}
+
+/* so that h2 and h3 is only centered for index.html */
+.center {
+    text-align: center;
+}
+
+ul, ol {
+    padding: 1%;
+    font-size: 1.2em;
+}
+
+.ulnav {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 1%;
+    padding: 1%;
+}
+
+/* mostly used for attribution */
+small {
+    display: block;
+    text-align: center;
+    color:rgb(255, 252, 244);
+}
+
+a {
+    color: rgb(255, 252, 244);
+}
+
+/* so that href a text on light bg is visible */
+.fontdark {
+    color: rgb(36, 113, 106);
+}
+
+a:hover {
+    color: darkseagreen;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* grid container to put text and img side by side */
+.text-img {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2em;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+}
+
+.text-img img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    padding-right: 5%;
+}
+
+footer {
+    background: rgb(36, 113, 106);
+    color: rgb(255, 252, 244);
+    text-align: center;
+    font-size: 1.2em;
+    padding: 2%;
+}
+footer a, footer p {
+    font-family: 'Amoria', sans-serif;
+    font-size: 1.2em;
+}
+
+/*CSS for responsive menu*/
+#hamIcon{display:none;}
+@media screen and (max-width:800px){
+/*make a menu items vertical*/
+nav ul li{display:block;}
+/* unhide menu icon */
+#hamIcon{display:block;}
+/*hide the menu item list*/
+nav ul{display:none;}
+}
+/*to unhide menu items*/
+.menuShow{display:block;}
