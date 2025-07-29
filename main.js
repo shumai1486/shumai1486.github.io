@@ -47,7 +47,7 @@ hamBtn.addEventListener("click", toggleMenus);
 // for popup windows
 const starButtons = document.querySelectorAll(".star");
 const popups = document.querySelectorAll(".popup");
-const closeBtns = document.querySelectorAll(".close-btn");
+const closeBtns = document.querySelectorAll(".closebtn");
 
 // for voicebank page switch
 const vocaloidSections = document.querySelectorAll(".textbox-grid, .textbox-grid2");

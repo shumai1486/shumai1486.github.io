@@ -543,16 +543,17 @@ label {
     padding: 1em;
 }
 
-.close-btn {
+.closebtn {
   background: rgb(255, 127, 127);
   color: rgb(255, 252, 244);
   border: none;
   font-size: 1em;
+  font-weight: bold;
   padding: 0.3em 0.6em;
   cursor: pointer;
 }
 
-.close-btn:hover {
+.closebtn:hover {
     background-color: rgb(237, 96, 96);
 }
 
