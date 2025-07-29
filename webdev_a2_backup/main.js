@@ -1,3 +1,17 @@
+// fullscreen
+const btnFS=document.querySelector("#btnFS");
+btnFS.addEventListener("click", () => {
+  if (!document.fullscreenElement) {
+    // Enter fullscreen
+    document.documentElement.requestFullscreen();
+    btnFS.style.backgroundImage = 'url("images/exitfullscreen.png")';
+  } else {
+    // Exit fullscreen
+    document.exitFullscreen();
+    btnFS.style.backgroundImage = 'url("images/fullscreen.png")';
+  }
+});
+
 // target all elements to save to constants
 const homebtn = document.querySelector("#homebtn");
 const page1btn = document.querySelector("#page1btn");
@@ -23,7 +37,7 @@ const vocaloidSections = document.querySelectorAll(".textbox-grid, .textbox-grid
 // for voicebank audio
 const audioFiles = [
   new Audio("audio/miku.mp3"),
-  new Audio("audio/rin.mp3"),
+  new Audio("audio/rinlen.mp3"),
   new Audio("audio/luka.mp3"),
   new Audio("audio/meiko.mp3"),
   new Audio("audio/kaito.mp3")
@@ -38,6 +52,31 @@ let currentPage = 0;
 
 // track current vocaloid/voicebank page
 let currentVocaloid = 0;
+
+function enterFullscreen() { //must be called by user generated event
+  btnFS.style.backgroundImage = 'url("images/exitfullscreen.png")';
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+    document.documentElement.mozRequestFullScreen();
+  } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+    document.documentElement.webkitRequestFullscreen();
+  } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+    document.documentElement.msRequestFullscreen();
+  }
+}
+function exitFullscreen() {
+  btnFS.style.backgroundImage = 'url("images/fullscreen.png")';
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) { // Firefox
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { // IE/Edge
+    document.msExitFullscreen();
+  }
+}
 
 function hideall() {
     allpages.forEach(page => {
@@ -108,7 +147,7 @@ starButtons.forEach(button => {
     if (targetPopup) {
       // show popup and reset display so animation can run
       targetPopup.style.display = "block";
-      targetPopup.classList.remove("hide");
+      targetPopup.classList.remove("hide");6
       targetPopup.classList.add("show");
     }
   });
@@ -195,10 +234,51 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightingImg = document.querySelector(".concert-stage .lighting");
 
   const button = document.getElementById("startconcertbtn");
+  const star = document.getElementById("starClicker");
   const resultDiv = document.getElementById("result");
+  const timerBar = document.getElementById("timerBar");
 
+  let concertScore = 0;
+  let starInterval;
 
-  // update visuals in real time
+  function moveStar() {
+    const stage = document.querySelector(".concert-stage");
+    
+    const randXPercent = 10 + Math.random() * 80; // avoid edges
+    const randYPercent = Math.random() * 60 - 20;
+
+    star.style.left = randXPercent + "%";
+    star.style.top = randYPercent + "%";
+
+    star.classList.remove("shrink");
+    star.classList.add("anim1");
+    star.style.display = "block";
+  }
+
+  function catchStar() {
+    concertScore += 3;
+    star.classList.add("shrink");
+    star.classList.remove("anim1");
+    showFloatingPoints("+3", star.style.left, star.style.top);
+    setTimeout(() => (star.style.display = "none"), 300);
+  }
+
+  function showFloatingPoints(text, leftPercent, topPercent) {
+    const point = document.createElement("span");
+    point.textContent = text;
+    point.className = "star-points";
+    
+    point.style.left = leftPercent;
+    point.style.top = topPercent;
+
+    document.querySelector(".concert-stage").appendChild(point);
+
+    setTimeout(() => point.remove(), 1000);
+  }
+
+  star.addEventListener("click", catchStar);
+
+  // update visuals based on chosen options
   outfitSelect.addEventListener("change", () => {
     const outfit = parseInt(outfitSelect.value);
     switch (outfit) {
@@ -222,19 +302,20 @@ document.addEventListener("DOMContentLoaded", () => {
       case 10:
         lightingImg.src = "images/concertlaser.png";
         break;
-      case 7:
+      case 8:
         lightingImg.src = "images/concertgreenlight.png";
         break;
-      case 5:
+      case 6:
         lightingImg.src = "images/concertspotlight.png";
         break;
       default:
-        lightingImg.src = "";
+        lightingImg.src = "images/concerttransparent.png";
     }
   });
 
-  // calculate score
+  // calculate score and start bonus minigame
   button.addEventListener("click", () => {
+    resultDiv.innerHTML = "";
     const song = parseInt(songSelect.value);
     const lighting = parseInt(lightingSelect.value);
     const outfit = parseInt(outfitSelect.value);
@@ -244,18 +325,40 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    button.disabled = true; // disable start button
+
     const randomBoost = Math.floor(Math.random() * 6);
-    const score = song + lighting + outfit + randomBoost;
+    const baseScore = song + lighting + outfit + randomBoost;
+    concertScore = 0; // reset bonus score
 
-    let reaction = "";
-    if (score > 30) reaction = "Legendary Show!!";
-    else if (score > 25) reaction = "Great Show!";
-    else if (score > 20) reaction = "Pretty Good!";
-    else reaction = "It was... okay!";
+    // show and restart timer animation
+    timerBar.style.display = "block";
+    timerBar.classList.remove("countdown-reset");
+    void timerBar.offsetWidth;
 
-    resultDiv.innerHTML = `
-      <p>Total Hype Score: <strong>${score}</strong></p>
-      <p>${reaction}</p>
-    `;
+    // start 10s bonus game
+    moveStar();
+    starInterval = setInterval(moveStar, 1000);
+
+    setTimeout(() => {
+      clearInterval(starInterval);
+      star.style.display = "none";
+      timerBar.style.display = "none";
+      button.disabled = false; // re-enable start button
+
+      const finalScore = baseScore + concertScore;
+      let reaction = "";
+      if (finalScore > 50) reaction = "Legendary Show!!";
+      else if (finalScore > 30) reaction = "Great Show!";
+      else reaction = "It was... okay!";
+
+      resultDiv.innerHTML = `
+        <p>Base score:  ${baseScore}</p>
+        <p>Bonus points: + ${concertScore}</p>
+        <p>Total Score: <strong>${finalScore}</strong></p>
+        <p>${reaction}</p>
+      `;
+    }, 10000);
   });
 });
+

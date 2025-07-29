@@ -281,7 +281,6 @@ img {
 }
 
 .star {
-    font-size: 1.5em;
     height: 10vh;
     width: 10vh;
     padding: 1% 3%;
@@ -292,7 +291,6 @@ img {
 }
 
 .ytbtn {
-    font-size: 1.5em;
     height: 10vh;
     width: 10vh;
     padding: 1% 3%;
@@ -303,7 +301,6 @@ img {
 }
 
 .spotifybtn {
-    font-size: 1.5em;
     height: 10vh;
     width: 10vh;
     padding: 1% 3%;
@@ -314,7 +311,6 @@ img {
 }
 
 .playaudiobtn {
-    font-size: 1.5em;
     height: 10vh;
     width: 10vh;
     padding: 1% 3%;
@@ -328,7 +324,23 @@ img {
   background-image: url("images/pauseaudio.png");
 }
 
-.star:hover, .ytbtn:hover, .spotifybtn:hover, .playaudiobtn:hover {
+.topright-corner {
+    position: relative;
+}
+#btnFS {
+    position: absolute;
+    right: 0;
+    scale: 50%;
+    height: 10vh;
+    width: 10vh;
+    padding: 1% 3%;
+    margin: 1%;
+    background-image: url("images/fullscreen.png"); 
+    background-size: cover;
+    background-color: transparent;
+}
+
+.star:hover, .ytbtn:hover, .spotifybtn:hover, .playaudiobtn:hover, #btnFS:hover, #btnWS:hover {
     background-color: rgb(255, 252, 244);
     border: 2px solid rgb(36, 113, 106);
 }
@@ -350,30 +362,114 @@ label {
 }
 
 .concert-stage {
-  position: relative;
-  height: 65vh;
-  overflow: hidden;
+    position: relative;
+    width: 90%;
+    max-width: 120rem;
+    aspect-ratio: 16 / 9;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
 }
 
 .concert-stage img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    left: 0;
+    top: 0;
+    padding: 0;
+    padding-bottom: 3%;
 }
 
 /* layering concert imgs */
-.concert-stage img.bg {
-  z-index: 1;
+.concert-stage .bg {
+    z-index: 1;
 }
 
-.concert-stage img.outfit {
-  z-index: 2;
+.concert-stage .outfit {
+    z-index: 2;
 }
 
-.concert-stage img.lighting {
-  z-index: 3;
+.concert-stage .lighting {
+    z-index: 3;
 }
+
+#starClicker {
+    position: absolute;
+    display: none;
+    width: 10%;
+    transition: all 0.5s ease;
+    z-index: 4;
+    cursor: pointer;
+}
+#starClicker.shrink
+{
+    width: 5vw;
+    width: 5%;
+}
+
+@keyframes starFrames{
+0%{rotate:0}
+12%{rotate:45deg}
+25%{rotate:90deg}
+37%{rotate:135deg}
+50%{rotate:180deg}
+62%{rotate:225deg}
+75%{rotate:270deg}
+87%{rotate:315deg}
+100%{rotate:360deg}
+}
+#starClicker.anim1{ animation: starFrames 0.5s;}
+
+.star-points {
+  position: absolute;
+  color: gold;
+  font-size: 1.2rem;
+  font-weight: bold;
+  pointer-events: none;
+  animation: floatUp 0.8s ease-out forwards;
+  z-index: 5;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+#timerBar {
+  top: 2%;
+  left: 10%;
+  width: 70%;
+  height: 2vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3%;
+  z-index: 5;
+  display: none;
+  background-color: antiquewhite;
+}
+
+#timerBar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, darkcyan, rgb(0, 197, 197));
+  animation: countdown 10s linear forwards;
+}
+
+@keyframes countdown {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
 
 @keyframes popupFadeIn {
   0% {
@@ -419,7 +515,6 @@ label {
 .popup.hide {
   animation: popupFadeOut 0.3s forwards;
 }
-
 
 .popup p {
     text-align: center;
@@ -544,8 +639,8 @@ footer a, footer p {
         margin: 0;
     }
 
-    #contentnav ul {
-        padding-bottom: 1%;
+    #contentnav ul li {
+        padding: 1.5%;
     }
 
     nav h2{
@@ -598,6 +693,10 @@ footer a, footer p {
         text-align: center;
         margin: 2% 0;
     }
+    
+    .popup ul li {
+        font-size: 0.7em;
+    }
 
     .textbox-grid {
         grid-template-columns: 100%;
@@ -614,6 +713,25 @@ footer a, footer p {
     label {
         padding-left: 10%;
     }
+
+    .concert-stage img {
+        width: 110%;
+        height: 110%;
+    }
+
+    #startconcertbtn {
+        font-size: 100%;
+        padding: 2%;
+        margin-top: 5%;
+    }
+
+    #timerBar {
+        top: 2%;
+        width: 60%;
+        margin-bottom: 3%;
+    }
+
+    #qrCodeImg{display:none;}
 }
 /*to unhide menu items*/
 .menuShow{display:block;}

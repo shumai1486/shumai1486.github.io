@@ -10,6 +10,10 @@
     </head>
 
     <body>
+        <div class="topright-corner">
+            <button id="btnFS"></button>
+        </div>
+
         <!-- for jump to top -->
         <header id="mainpageheader">
         <h1 id="mainpageheader">Vocaloid</h1>
@@ -35,6 +39,10 @@
                 <article>
                     <img width="500" src="images/mikuheart.png" 
                      alt="Hatsune Miku" title="Mikuheart">
+                </article>
+                <article>
+                    <img width="300" id="qrCodeImg" src="images/qrcode.png"
+                    alt="qrcode" title="QR code">
                 </article>
             </section>
             <section class="page" id="page1">
@@ -568,16 +576,16 @@
                                 <select id="song">
                                     <option value="">Choose a song</option>
                                     <option value="10">Tell Your World</option>
-                                    <option value="8">World is Mine</option>
-                                    <option value="6">Senbonzakura</option>
+                                    <option value="10">World is Mine</option>
+                                    <option value="10">Senbonzakura</option>
                                 </select>
 
                                 <label for="lighting">Lighting:</label>
                                 <select id="lighting">
                                     <option value="">Choose lighting</option>
                                     <option value="10">Lasers</option>
-                                    <option value="7">Green Lights</option>
-                                    <option value="5">Spotlight</option>
+                                    <option value="8">Green Lights</option>
+                                    <option value="6">Spotlight</option>
                                 </select>
 
                                 <label for="outfit">Outfit:</label>
@@ -588,19 +596,27 @@
                                     <option value="4">Casual Hoodie</option>
                                 </select>
                                 </div>
+
+                                <p></p>
+                                <div id="timerBar"></div>
+                                
                                 <div class="concert-stage">
                                     <img class="bg" width="500" src="images/concertbg.png"
                                     alt="Background" title="Concert BG"/>
+                                    <img id="starClicker" width="150" src="images/star.png"
+                                    alt="star clicker" title="Star Clicker"/>
                                     <img class="outfit" width="500" src="images/concertdefaultfit.png"
                                     alt="Outffit" title="Concert Outfit"/>
-                                    <img class="lighting" width="500" src="images/concerttransparent.png" alt="Lighting" title="Concert Lighting" />
+                                    <img class="lighting" width="500" src="images/concerttransparent.png"
+                                    alt="Lighting" title="Concert Lighting"/>
                                 </div>
                                 <div>
                                 <button id="startconcertbtn">★ START ★</button>
                                 </div>
-                                <p></p>
 
+                                <p></p>
                                 <div id="result" class="result"></div>
+                                <p></p>
                             </div>
                         </article>
                     </main>
