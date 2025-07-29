@@ -78,7 +78,6 @@ button:hover {
 
 body {
     background-color: rgb(255, 252, 244);
-    color: rgb(255, 252, 244);
     font-size: 100%;
 }
 
@@ -89,7 +88,7 @@ header {
     padding: 1%;
 }
 
-#mainpageheader {
+.mainpageheader {
     background-color: rgb(255, 252, 244);
     color: rgb(36, 113, 106);
     padding:0%;
@@ -114,7 +113,7 @@ nav ul {
   gap: 1rem;
 }
 
-#contentnav {
+.contentnav {
     background-color: darkcyan;
     color:rgb(255, 252, 244);
     justify-content: left;
@@ -124,19 +123,19 @@ nav ul {
     position: sticky;
     top: 0;
 }
-#contentnav ul {
+.contentnav ul {
     flex-direction: column;
     padding-left: 1%;
 }
 
-main {
+main, .main {
     background-color: rgb(255, 252, 244);
     color: rgb(36, 113, 106);
     width: 70%;
     padding: 2%;
 }
 
-h1 {
+h1, .pageheader {
     font-family: 'Amoria', sans-serif;
     color: rgb(255, 252, 244);
     text-align: center;
@@ -324,6 +323,10 @@ img {
   background-image: url("images/pauseaudio.png");
 }
 
+/* to align specific parts of text */
+.centralise {
+    text-align: center;
+}
 .topright-corner {
     position: relative;
 }
@@ -340,7 +343,8 @@ img {
     background-color: transparent;
 }
 
-.star:hover, .ytbtn:hover, .spotifybtn:hover, .playaudiobtn:hover, #btnFS:hover, #btnWS:hover {
+.star:hover, .ytbtn:hover, .spotifybtn:hover,
+.playaudiobtn:hover, #btnFS:hover, #btnWS:hover {
     background-color: rgb(255, 252, 244);
     border: 2px solid rgb(36, 113, 106);
 }
@@ -410,15 +414,15 @@ label {
 }
 
 @keyframes starFrames{
-0%{rotate:0}
-12%{rotate:45deg}
-25%{rotate:90deg}
-37%{rotate:135deg}
-50%{rotate:180deg}
-62%{rotate:225deg}
-75%{rotate:270deg}
-87%{rotate:315deg}
-100%{rotate:360deg}
+    0%{rotate:0deg}
+    12%{rotate:45deg}
+    25%{rotate:90deg}
+    37%{rotate:135deg}
+    50%{rotate:180deg}
+    62%{rotate:225deg}
+    75%{rotate:270deg}
+    87%{rotate:315deg}
+    100%{rotate:360deg}
 }
 #starClicker.anim1{ animation: starFrames 0.5s;}
 
@@ -628,7 +632,7 @@ footer a, footer p {
     }
 
     /* top sticky navbar */
-    #contentnav {
+    .contentnav {
         background-color: darkcyan;
         font-size: 80%;
         width: 100%;
@@ -639,7 +643,7 @@ footer a, footer p {
         margin: 0;
     }
 
-    #contentnav ul li {
+    .contentnav ul li {
         padding: 1.5%;
     }
 
@@ -660,20 +664,20 @@ footer a, footer p {
         gap: 1em;
     }
 
-    main {
+    main, .main{
         width: 100%;
         padding: 5%;
         margin: 0;
         font-size: 120%;
     }
 
-    h1 {
+    h1, .pageheader {
         font-size: 2.5em;
     }
     h2 {
         font-size: 1.5em;
     }
-    h3, p {
+    h3 {
         font-size: 1em;
     }
 
@@ -694,7 +698,7 @@ footer a, footer p {
         margin: 2% 0;
     }
 
-    .popup ul li {
+    p, .popup ul li {
         font-size: 0.7em;
     }
 

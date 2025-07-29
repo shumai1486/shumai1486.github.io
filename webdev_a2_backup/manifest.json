@@ -3,7 +3,7 @@
     "short_name": "AshlynPWA",
     "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#rgb(255, 252, 244)",
+    "background_color": "rgb(255, 252, 244)",
     "theme_color": "rgb(0,197,197)",
     "icons": [
         { 

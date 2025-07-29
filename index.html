@@ -8,8 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1,user-scalable=no">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="icon" type="image/png" href="images/mikuicon.png"/>
-        <link rel="manifest" href="manifest.json"/>
+        <link rel="icon" type="image/png" href="images/mikuicon.png">
+        <link rel="manifest" href="manifest.json">
         <title>Ashlyn Web Development Assignment 2</title>
     </head>
 
@@ -19,9 +19,9 @@
         </div>
 
         <!-- for jump to top -->
-        <header id="mainpageheader">
-        <h1 id="mainpageheader">Vocaloid</h1>
-        <small>All non-attributed images are drawn by me!!</small>
+        <header class="mainpageheader">
+            <h1 class="mainpageheader">Vocaloid</h1>
+            <small>All non-attributed images are drawn by me!!</small>
         </header>
 
         <nav> <!--menu system-->
@@ -40,22 +40,20 @@
 
         <main id="pagecontainer">
             <section class="page" id="page0">
-                <article>
-                    <img width="500" src="images/mikuheart.png" 
-                     alt="Hatsune Miku" title="Mikuheart">
-                </article>
-                <article>
-                    <img width="300" id="qrCodeImg" src="images/qrcode.png"
-                    alt="qrcode" title="QR code">
-                </article>
+                <h2 class="centralise">Welcome to my vocaloid webpage!!</h2>
+                <img width="500" src="images/mikuheart.png" 
+                    alt="Hatsune Miku" title="Mikuheart">
+                <img width="300" id="qrCodeImg" src="images/qrcode.png"
+                alt="qrcode" title="QR code">
             </section>
+
             <section class="page" id="page1">
                 <header>
-                    <h1>★ BIOGRAPHY ★</h1>
+                    <h2 class="pageheader">★ BIOGRAPHY ★</h2>
                 </header>
 
                 <div class="content">
-                    <nav id= "contentnav">
+                    <nav class= "contentnav">
                         <h2>𐙚NAV</h2>
                             <h3>CONTENTS</h3>
                             <ul class="ulnav">
@@ -64,7 +62,7 @@
                             </ul>
                     </nav>
             
-                    <main>
+                    <div class="main">
                         <article>
                             <!-- container for text-img grid -->
                             <div class="text-img">
@@ -155,7 +153,7 @@
                                 </div>
                             </div>
                         </article>
-                    </main>
+                    </div>
                 </div>
                 
                 <footer>
@@ -166,25 +164,25 @@
 
             <section class="page" id="page2">
                 <header>
-                    <h1>★ VOICEBANKS ★</h1>
+                    <h2 class="pageheader">★ VOICEBANKS ★</h2>
                 </header>
 
                 <div class="content">
-                    <nav id= "contentnav">
+                    <nav class= "contentnav">
                         <h2>𐙚NAV</h2>
                             <h3>CONTENTS</h3>
                             <ul class="ulnav">
-                                <li><a href="#info">What are Voicebanks?</a></li>
-                                <li><a href="#vb">Popular Vocaloids + Voicebanks</a></li>
+                                <li><a href="#vb">What are Voicebanks?</a></li>
+                                <li><a href="#vc">Popular Vocaloids + Voicebanks</a></li>
                             </ul>
                     </nav>
             
-                    <main>
+                    <div class="main">
                         <article>
                             <!-- container for text-img grid -->
                             <div class="text-img">
                                 <div class="text">
-                                    <h2 id="info">
+                                    <h2 id="vb">
                                         What are Voicebanks? ⁀➴⊹ ࣪ ˖
                                     </h2>
                                     <p>
@@ -202,7 +200,7 @@
                         </article>
 
                         <article>
-                            <h2 id="vb">
+                            <h2 id="vc">
                                 Popular Vocaloids + Voicebanks ⁀➴⊹ ࣪ ˖
                             </h2>
                             <p>These are some of the most popular Vocaloids along with audio samples of their voicebanks.</p>
@@ -341,7 +339,7 @@
                             </div>
 
                         </article>
-                    </main>
+                    </div>
                 </div>
                 
                 <footer>
@@ -352,11 +350,11 @@
 
             <section class="page" id="page3">
                 <header>
-                    <h1>★ PRODUCERS ★</h1>
+                    <h2 class="pageheader">★ PRODUCERS ★</h2>
                 </header>
 
                 <div class="content">
-                    <nav id= "contentnav">
+                    <nav class= "contentnav">
                         <h2>𐙚NAV</h2>
                             <h3>CONTENTS</h3>
                             <ul class="ulnav">
@@ -365,7 +363,7 @@
                             </ul>
                     </nav>
             
-                    <main>
+                    <div class="main">
                         <article>
                             <!-- container for text-img grid -->
                             <div class="text-img">
@@ -398,28 +396,28 @@
                                         <img width="235" src="images/iyowa.png" 
                                             alt="Iyowa" title="Iyowa">
                                         <p>Iyowa</p>
-                                        <a href="https://www.youtube.com/@igusuri_please" target="_blank"><button class="ytbtn"></button></a>
-                                        <a href="https://open.spotify.com/artist/0gox2jF74UUFl8bDQYyTFr" target="_blank"><button class="spotifybtn"></button></a> 
+                                        <button id="iyowaytbtn" class="ytbtn"></button>
+                                        <button id="iyowaspotifybtn" class="spotifybtn"></button>
                                     </div>
                                     
                                     <div class="box">
                                     <img width="235" src="images/syudou.png" 
                                         alt="Syudou" title="Syudou">
                                         <p>Syudou</p>
-                                        <a href="https://www.youtube.com/@syudou_official" target="_blank"><button class="ytbtn"></button></a>
-                                        <a href="https://open.spotify.com/artist/43XkWaoCS0wKjuMJrWFgoa" target="_blank"><button class="spotifybtn"></button></a>     
+                                        <button id="syudouytbtn" class="ytbtn"></button>
+                                        <button id="syudouspotifybtn" class="spotifybtn"></button>     
                                     </div>
 
                                     <div class="box">
                                         <img width="235" src="images/kikuo.png" 
                                         alt="Kikuo" title="Kikuo">
                                         <p>Kikuo</p>  
-                                        <a href="https://www.youtube.com/@kikuo_sound" target="_blank"><button class="ytbtn"></button></a>
-                                        <a href="https://open.spotify.com/artist/5FhcqamaRFfpZb4VHV47fu" target="_blank"><button class="spotifybtn"></button></a>    
+                                        <button id="kikuoytbtn" class="ytbtn"></button>
+                                        <button id="kikuospotifybtn" class="spotifybtn"></button>
                                     </div>
                                 </div>
                         </article>
-                    </main>
+                    </div>
                 </div>
                 
                 <footer>
@@ -430,11 +428,11 @@
 
             <section class="page" id="page4">
                 <header>
-                    <h1>★ HOW TO USE? ★</h1>
+                    <h2 class="pageheader">★ HOW TO USE? ★</h2>
                 </header>
 
                 <div class="content">
-                    <nav id= "contentnav">
+                    <nav class= "contentnav">
                         <h2>𐙚NAV</h2>
                             <h3>CONTENTS</h3>
                             <ul class="ulnav">
@@ -443,7 +441,7 @@
                             </ul>
                     </nav>
             
-                    <main>
+                    <div class="main">
                         <article>
                             <!-- container for text-img grid -->
                             <div class="text-img">
@@ -475,15 +473,14 @@
                                 <iframe class="responsive-iframe"
                                     width="560" height="315"
                                     src="https://www.youtube.com/embed/videoseries?si=VAgd34WVZxibRega&amp;list=PLKjhsKpX5zp8UQzeUjFvOohS9NGTj-XBe"
-                                    title="YouTube video player" frameborder="0"
+                                    title="YouTube video player"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     referrerpolicy="strict-origin-when-cross-origin"
                                     allowfullscreen>
                                 </iframe>
-                                </iframe>
                             </div>
                         </article>
-                    </main>
+                    </div>
                 </div>
                 
                 <footer>
@@ -494,11 +491,11 @@
 
             <section class="page" id="page5">
                 <header>
-                    <h1>★ EVENTS & CONCERTS ★</h1>
+                    <h2 class="pageheader">★ EVENTS & CONCERTS ★</h2>
                 </header>
 
                 <div class="content">
-                    <nav id= "contentnav">
+                    <nav class= "contentnav">
                         <h2>𐙚NAV</h2>
                             <h3>CONTENTS</h3>
                             <ul class="ulnav">
@@ -508,7 +505,7 @@
                             </ul>
                     </nav>
             
-                    <main>
+                    <div class="main">
                         <article>
                             <!-- container for text-img grid -->
                             <div class="text-img">
@@ -606,13 +603,13 @@
                                 
                                 <div class="concert-stage">
                                     <img class="bg" width="500" src="images/concertbg.png"
-                                    alt="Background" title="Concert BG"/>
+                                    alt="Background" title="Concert BG">
                                     <img id="starClicker" width="150" src="images/star.png"
-                                    alt="star clicker" title="Star Clicker"/>
+                                    alt="star clicker" title="Star Clicker">
                                     <img class="outfit" width="500" src="images/concertdefaultfit.png"
-                                    alt="Outffit" title="Concert Outfit"/>
+                                    alt="Outffit" title="Concert Outfit">
                                     <img class="lighting" width="500" src="images/concerttransparent.png"
-                                    alt="Lighting" title="Concert Lighting"/>
+                                    alt="Lighting" title="Concert Lighting">
                                 </div>
                                 <div>
                                 <button id="startconcertbtn">★ START ★</button>
@@ -623,7 +620,7 @@
                                 <p></p>
                             </div>
                         </article>
-                    </main>
+                    </div>
                 </div>
                 
                 <footer>

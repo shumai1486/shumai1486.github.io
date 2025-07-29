@@ -1,14 +1,32 @@
+/* jshint esversion: 6 */
+
 // fullscreen
 const btnFS=document.querySelector("#btnFS");
 btnFS.addEventListener("click", () => {
   if (!document.fullscreenElement) {
     // Enter fullscreen
-    document.documentElement.requestFullscreen();
     btnFS.style.backgroundImage = 'url("images/exitfullscreen.png")';
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+      document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+      document.documentElement.msRequestFullscreen();
+    }
   } else {
     // Exit fullscreen
-    document.exitFullscreen();
     btnFS.style.backgroundImage = 'url("images/fullscreen.png")';
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { // Firefox
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { // IE/Edge
+      document.msExitFullscreen();
+    }
   }
 });
 
@@ -52,31 +70,6 @@ let currentPage = 0;
 
 // track current vocaloid/voicebank page
 let currentVocaloid = 0;
-
-function enterFullscreen() { //must be called by user generated event
-  btnFS.style.backgroundImage = 'url("images/exitfullscreen.png")';
-  if (document.documentElement.requestFullscreen) {
-    document.documentElement.requestFullscreen();
-  } else if (document.documentElement.mozRequestFullScreen) { // Firefox
-    document.documentElement.mozRequestFullScreen();
-  } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
-    document.documentElement.webkitRequestFullscreen();
-  } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
-    document.documentElement.msRequestFullscreen();
-  }
-}
-function exitFullscreen() {
-  btnFS.style.backgroundImage = 'url("images/fullscreen.png")';
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else if (document.mozCancelFullScreen) { // Firefox
-    document.mozCancelFullScreen();
-  } else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
-    document.webkitExitFullscreen();
-  } else if (document.msExitFullscreen) { // IE/Edge
-    document.msExitFullscreen();
-  }
-}
 
 function hideall() {
     allpages.forEach(page => {
@@ -147,7 +140,7 @@ starButtons.forEach(button => {
     if (targetPopup) {
       // show popup and reset display so animation can run
       targetPopup.style.display = "block";
-      targetPopup.classList.remove("hide");6
+      targetPopup.classList.remove("hide");
       targetPopup.classList.add("show");
     }
   });
@@ -226,6 +219,28 @@ buttons.forEach((btn, index) => {
   });
 });
 
+// to link to yt and spotify pages
+document.querySelector("#iyowaytbtn").addEventListener("click", () => {
+  window.open("https://www.youtube.com/@igusuri_please", "_blank");
+});
+document.querySelector("#iyowaspotifybtn").addEventListener("click", () => {
+  window.open("https://open.spotify.com/artist/0gox2jF74UUFl8bDQYyTFr", "_blank");
+});
+document.querySelector("#syudouytbtn").addEventListener("click", () => {
+  window.open("https://www.youtube.com/@syudou_official", "_blank");
+});
+document.querySelector("#syudouspotifybtn").addEventListener("click", () => {
+  window.open("https://open.spotify.com/artist/43XkWaoCS0wKjuMJrWFgoa", "_blank");
+});
+document.querySelector("#kikuoytbtn").addEventListener("click", () => {
+  window.open("https://www.youtube.com/@kikuo_sound", "_blank");
+});
+
+document.querySelector("#kikuospotifybtn").addEventListener("click", () => {
+  window.open("https://open.spotify.com/artist/5FhcqamaRFfpZb4VHV47fu", "_blank");
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const songSelect = document.getElementById("song");
   const lightingSelect = document.getElementById("lighting");
@@ -242,8 +257,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let starInterval;
 
   function moveStar() {
-    const stage = document.querySelector(".concert-stage");
-    
     const randXPercent = 10 + Math.random() * 80; // avoid edges
     const randYPercent = Math.random() * 60 - 20;
 
