@@ -693,7 +693,7 @@ footer a, footer p {
         text-align: center;
         margin: 2% 0;
     }
-    
+
     .popup ul li {
         font-size: 0.7em;
     }
@@ -731,7 +731,8 @@ footer a, footer p {
         margin-bottom: 3%;
     }
 
-    #qrCodeImg{display:none;}
+    #qrCodeImg, #btnFS{display:none;}
 }
+
 /*to unhide menu items*/
 .menuShow{display:block;}
