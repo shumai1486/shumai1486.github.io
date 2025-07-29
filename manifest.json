@@ -1,13 +1,15 @@
-{ "name": "WebDev Demo14 PWA",
-"short_name": "14PWA",
-"start_url": "index.html",
-"display": "standalone",
-"background_color": "#ffffff",
-"theme_color": "#00FF00",
-"icons": [
-{ "src": "images/mikuicon.png",
-"sizes": "64x64",
-"type": "image/png"
-}
-]
+{
+    "name": "Ashlyn WebDev A2 PWA",
+    "short_name": "AshlynPWA",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#rgb(255, 252, 244)",
+    "theme_color": "rgb(0,197,197)",
+    "icons": [
+        { 
+            "src": "images/mikuicon.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        }
+    ]
 }
