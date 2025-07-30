@@ -3,6 +3,7 @@
 // fullscreen
 const btnFS=document.querySelector("#btnFS");
 btnFS.addEventListener("click", () => {
+  clickSound.play();
   if (!document.fullscreenElement) {
     // Enter fullscreen
     btnFS.style.backgroundImage = 'url("images/exitfullscreen.png")';
@@ -38,6 +39,8 @@ const page3btn = document.querySelector("#page3btn");
 const page4btn = document.querySelector("#page4btn");
 const page5btn = document.querySelector("#page5btn");
 const allpages = document.querySelectorAll(".page");
+//click sfx
+const clickSound = new Audio("audio/buttonclick.mp3");
 
 // for menu
 const hamBtn = document.querySelector("#hamIcon");
@@ -100,6 +103,7 @@ function stopAllAudio() {
 
 function show(newPage) {
   stopAllAudio();
+  clickSound.play();
   if (newPage === currentPage) return; // do nothing if same page
 
   const oldPage = document.querySelector("#page" + currentPage);
@@ -145,6 +149,7 @@ currentPage = 0;
 function toggleMenus() {
   // toggle menu visibility
   menuItemsList.classList.toggle("menuShow");
+  clickSound.play();
 
   if (menuItemsList.classList.contains("menuShow")) {
     hamBtn.innerHTML = "Close Menu";
@@ -156,6 +161,7 @@ function toggleMenus() {
 // open popup
 starButtons.forEach(button => {
   button.addEventListener("click", () => {
+    clickSound.play();
     const targetPopup = document.getElementById(button.dataset.popup);
     if (targetPopup) {
       // show popup and reset display so animation can run
@@ -169,6 +175,7 @@ starButtons.forEach(button => {
 // close popup
 closeBtns.forEach(btn => {
   btn.addEventListener("click", () => {
+    clickSound.play();
     const popup = btn.closest(".popup");
     popup.classList.remove("show");
     popup.classList.add("hide");
@@ -201,6 +208,7 @@ document.querySelectorAll(".leftbtn").forEach(button => {
     currentVocaloid = (currentVocaloid - 1 + vocaloidSections.length) % vocaloidSections.length;
     updateVocaloidView(currentVocaloid);
     stopAllAudio();
+    clickSound.play();
   });
 });
 
@@ -209,6 +217,7 @@ document.querySelectorAll(".rightbtn").forEach(button => {
     currentVocaloid = (currentVocaloid + 1) % vocaloidSections.length;
     updateVocaloidView(currentVocaloid);
     stopAllAudio();
+    clickSound.play();
   });
 });
 
