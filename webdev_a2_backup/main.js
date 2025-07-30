@@ -64,6 +64,7 @@ const audioFiles = [
 const buttons = document.querySelectorAll(".playaudiobtn");
 // keep track of currently playing audio
 let currentlyPlayingIndex = null;
+let currentAudio = null;
 
 // track current visible page
 let currentPage = 0;
@@ -79,7 +80,26 @@ function hideall() {
     });
 }
 
+function stopAllAudio() {
+  // stop concert audio
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+
+  // stop voicebank audios
+  audioFiles.forEach((audio, i) => {
+    audio.pause();
+    audio.currentTime = 0;
+    buttons[i].classList.remove("paused");
+  });
+
+  // reset state
+  currentlyPlayingIndex = null;
+}
+
 function show(newPage) {
+  stopAllAudio();
   if (newPage === currentPage) return; // do nothing if same page
 
   const oldPage = document.querySelector("#page" + currentPage);
@@ -180,6 +200,7 @@ document.querySelectorAll(".leftbtn").forEach(button => {
   button.addEventListener("click", () => {
     currentVocaloid = (currentVocaloid - 1 + vocaloidSections.length) % vocaloidSections.length;
     updateVocaloidView(currentVocaloid);
+    stopAllAudio();
   });
 });
 
@@ -187,6 +208,7 @@ document.querySelectorAll(".rightbtn").forEach(button => {
   button.addEventListener("click", () => {
     currentVocaloid = (currentVocaloid + 1) % vocaloidSections.length;
     updateVocaloidView(currentVocaloid);
+    stopAllAudio();
   });
 });
 
@@ -203,13 +225,7 @@ buttons.forEach((btn, index) => {
       currentlyPlayingIndex = null;
     } else {
       // pause all other audios
-      audioFiles.forEach((audio, i) => {
-        if (i !== index) {
-          audio.pause();
-          audio.currentTime = 0;
-          buttons[i].classList.remove("paused");
-        }
-      });
+      stopAllAudio();
 
       // play selected audio
       selectedAudio.play();
@@ -290,6 +306,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   star.addEventListener("click", catchStar);
+
+  // update song based on chosen option
+  songSelect.addEventListener("change", () => {
+    // stop any previous audio
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+
+    const song = parseInt(songSelect.value);
+    switch (song) {
+      case 10:
+        currentAudio = new Audio("audio/melt.mp3");
+        break;
+      case 9:
+        currentAudio = new Audio("audio/worldismine.mp3");
+        break;
+      case 8:
+        currentAudio = new Audio("audio/tellyourworld.mp3");
+        break;
+      default:
+      currentAudio = null;
+    }
+    if (currentAudio) {
+      currentAudio.play();
+    }
+  });
 
   // update visuals based on chosen options
   outfitSelect.addEventListener("change", () => {

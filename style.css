@@ -701,13 +701,38 @@ footer a, footer p {
         margin: 2% 0;
     }
 
+    .popup-header {
+        font-size: 0.7em;
+    }
+
     p, .popup ul li {
         font-size: 0.7em;
+    }
+
+    .box {
+        padding: 15%;
+        padding-top: 5%;
+    }
+
+    .box img{
+        padding: 0;
     }
 
     .textbox-grid {
         grid-template-columns: 100%;
         grid-template-rows: 60% 40%;
+    }
+
+    .leftbtn, .rightbtn {
+        padding: 2%;
+    }
+
+    .span {
+        font-size: 1.5em;
+    }
+
+    .playaudiobtn {
+        margin: 0;
     }
 
     .minigame-form {
