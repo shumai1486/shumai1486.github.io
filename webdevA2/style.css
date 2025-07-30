@@ -710,8 +710,12 @@ footer a, footer p {
     }
 
     .box {
-        padding: 15%;
+        padding: 25%;
         padding-top: 5%;
+    }
+
+    .box small {
+        font-size: 0.7em;
     }
 
     .box img{
