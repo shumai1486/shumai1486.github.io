@@ -714,12 +714,22 @@ footer a, footer p {
         padding-top: 5%;
     }
 
-    .box small, #minigame-box p, #minigame-box select {
+    .box small, #producer-box p, 
+    #minigame-box p, #minigame-box select {
         font-size: 0.7em;
     }
 
     .box img, #minigame-box {
         padding: 0;
+    }
+
+    #producer-box {
+        padding: 5%;
+    }
+
+    #producer-box button {
+        width: 3em;
+        height: 3em;
     }
 
     .textbox-grid {
