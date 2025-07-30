@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="style.css" type="text/css" rel="stylesheet">
+        <script src="main.js" defer></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1,user-scalable=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="icon" type="image/jpg" href="images/mikuicon.jpg">
+        <link rel="manifest" href="manifest.json">
+        <title>Ashlyn Web Development Assignment 2</title>
+    </head>
+
+    <body>
+        <div class="topright-corner">
+            <button id="btnFS"></button>
+        </div>
+
+        <!-- for jump to top -->
+        <header class="mainpageheader">
+            <h1 id="mainpageheader" class="mainpageheader">Vocaloid</h1>
+            <small>All non-attributed images are drawn by me!!</small>
+        </header>
+
+        <nav> <!--menu system-->
+            <!--icon for mobile-->
+            <button id="hamIcon">Open Menu</button>
+            
+            <ul>
+                <li><button id="homebtn">Homepage</button></li>
+                <li><button id="page1btn">Biography</button></li>
+                <li><button id="page2btn">Voicebanks</button></li>
+                <li><button id="page3btn">Producers</button></li>
+                <li><button id="page4btn">How to Use?</button></li>
+                <li><button id="page5btn">Events & Concerts</button></li>
+            </ul>
+        </nav>
+
+        <main id="pagecontainer">
+            <section class="page" id="page0">
+                <h2 class="centralise">˚₊‧꒰ა ☆ ໒꒱ ‧₊˚</h2>
+                <img width="500" src="images/mikuheart.jpg" 
+                    alt="Hatsune Miku" title="Mikuheart">
+                <img width="300" id="qrCodeImg" src="images/qrcode.jpg"
+                alt="qrcode" title="QR code">
+            </section>
+
+            <section class="page" id="page1">
+                <header>
+                    <h2 class="pageheader">★ BIOGRAPHY ★</h2>
+                </header>
+
+                <div class="content">
+                    <nav class= "contentnav">
+                        <h2>𐙚NAV</h2>
+                            <h3>CONTENTS</h3>
+                            <ul class="ulnav">
+                                <li><a href="#info">What is Vocaloid?</a></li>
+                                <li><a href="#hist">History of Vocaloid</a></li>
+                            </ul>
+                    </nav>
+            
+                    <div class="main">
+                        <article>
+                            <!-- container for text-img grid -->
+                            <div class="text-img">
+                                <div class="text">
+                                    <h2 id="info">
+                                        What is Vocaloid? ⁀➴⊹ ࣪ ˖
+                                    </h2>
+                                    <p>
+                                        Vocaloid is a software created by Yamaha that enables users to synthesise singing by typing in the desired lyrics and melody.
+                                        It uses pre-recorded vocal samples called "voicebanks" to generate the singing voice.
+                                    </p>
+                                </div>
+                    
+                                <p class="img">
+                                    <img width="435" src="images/hatsunemiku.jpg" 
+                                    alt="Hatsune Miku" title="Miku">
+
+                                    <small>
+                                        Image from Hatsune Miku: Project Diva © 
+                                        <a class="fontdark" href="https://asia.sega.com/mega39splus/en/"
+                                        target="_blank">SEGA</a>
+                                    </small>
+                                </p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <h2 id="hist">
+                                History of Vocaloid ⁀➴⊹ ࣪ ˖
+                            </h2>
+
+                            <div class="starbtn">
+                                <button class="star" data-popup="popup1"></button>
+                                <h3>Dawn</h3>
+                                <button class="star" data-popup="popup2"></button>
+                                <h3>Development</h3>
+                                <button class="star" data-popup="popup3"></button>
+                                <h3>Maturity</h3>
+                            </div>
+
+                            <div id="popup1" class="popup">
+                                <div class="popup-content">
+                                    <div class="popup-header">
+                                        <span class="popup-title">dawn.exe</span>
+                                        <button class="closebtn">x</button>
+                                    </div>
+
+                                    <div class="popup-body">
+                                        <p>2000-2008</p>
+                                        <ul>
+                                            <li>Yamaha begins development of "Daisy", the foundation of Vocaloid.</li>
+                                            <li>First public debut at Musikmesse 2003.</li>
+                                            <li>VOCALOID(1) launches in 2004 with English libraries Leon and Lola, and Japan's Meiko.</li>
+                                            <li>Kaito is released in 2006 as the pioneering male Japanese vocal library.</li>
+                                            <li>Hatsune Miku debuts in 2007 with VOCALOID2, triggering massive fan activity.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="popup2" class="popup">
+                                <div class="popup-content">
+                                    <div class="popup-header">
+                                        <span class="popup-title">development.exe</span>
+                                        <button class="closebtn">x</button>
+                                    </div>
+
+                                    <div class="popup-body">
+                                        <p>2009-2015</p>
+                                        <ul>
+                                            <li>VOCALOID3 launches in 2011, with smoother vocals and multilingual support.</li>
+                                            <li>Mobile Vocaloid Editor releases in 2015.</li>
+                                            <li>Appears in mainstream games and “Cool Japan” projects.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="popup3" class="popup">
+                                <div class="popup-content">
+                                    <div class="popup-header">
+                                        <span class="popup-title">maturity.exe</span>
+                                        <button class="closebtn">x</button>
+                                    </div>
+
+                                    <div class="popup-body">
+                                        <p>2016-2023</p>
+                                        <ul>
+                                            <li>VOCALOID5 launches in 2018 with bundled voicebanks.</li>
+                                            <li>VOCALOID:AI debuts in 2019 using deep learning.</li>
+                                            <li>VOCALOID6 adds real-time plugins in 2023.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <footer>
+                    <a href="#mainpageheader">Jump to top!</a>
+                    <p>MADE BY ASHLYN KUAK ★ 郭语捷</p>
+                </footer>
+            </section>
+
+            <section class="page" id="page2">
+                <header>
+                    <h2 class="pageheader">★ VOICEBANKS ★</h2>
+                </header>
+
+                <div class="content">
+                    <nav class= "contentnav">
+                        <h2>𐙚NAV</h2>
+                            <h3>CONTENTS</h3>
+                            <ul class="ulnav">
+                                <li><a href="#vb">What are Voicebanks?</a></li>
+                                <li><a href="#vc">Popular Vocaloids + Voicebanks</a></li>
+                            </ul>
+                    </nav>
+            
+                    <div class="main">
+                        <article>
+                            <!-- container for text-img grid -->
+                            <div class="text-img">
+                                <div class="text">
+                                    <h2 id="vb">
+                                        What are Voicebanks? ⁀➴⊹ ࣪ ˖
+                                    </h2>
+                                    <p>
+                                        Voicebanks are collections of pre-recorded vocal samples.
+                                        Each Vocaloid can have many voicebanks suited for different types of songs.
+                                        These samples are combined by the software to generate singing based on user-input lyrics and melodies.
+                                    </p>
+                                </div>
+                    
+                                <p class="img">
+                                    <img width="435" src="images/vocaloid.jpg" 
+                                    alt="A picture of the vocaloids" title="Vocaloids">
+
+                                    <small>
+                                        Illustrated by 
+                                        <a class="fontdark" href="https://x.com/iximaxima?lang=en"
+                                        target="_blank">iXima</a>
+                                    </small>
+                                </p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <h2 id="vc">
+                                Popular Vocaloids + Voicebanks ⁀➴⊹ ࣪ ˖
+                            </h2>
+                            <p>These are some of the most popular Vocaloids along with audio samples of their voicebanks.</p>
+
+                            <div class="textbox-grid">
+                                <div class="box">
+                                    <small>
+                                        Illustrated by 
+                                        <a class="fontdark" href="https://x.com/keigarou?lang=en"
+                                        target="_blank">KEI Garou</a>
+                                    </small>
+
+                                    <img width="235" src="images/mikuprofile.jpg" 
+                                        alt="Hatsune Miku" title="Hatsune Miku">
+                                        
+                                    <p>
+                                        <button class="leftbtn">←</button>
+                                        <span class="label">Miku</span>
+                                        <button class="rightbtn">→</button>
+                                    </p>
+                                    <p>
+                                        <button class="playaudiobtn"></button>
+                                    </p>
+                                </div>
+
+                                <div class="textbox">
+                                    <p>Name: Hatsune Miku ★ 初音ミク</p>
+                                    <p>Release Date: 31 August 2007</p>
+                                    <p>Voice Provider: Saki Fujita</p>
+
+                                    <p>
+                                        Miku is the first Japanese vocaloid to be both developed and distributed by Crypton Future Media, Inc.
+                                         She was initially released in August 2007 for the VOCALOID2 engine and was the first member of the Character Vocal Series.
+                                         Overall, she is the most popular vocaloid and is well-loved by fans all over the world.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="textbox-grid">
+                                <div class="box">
+                                    <small>
+                                        Illustrated by 
+                                        <a class="fontdark" href="https://x.com/keigarou?lang=en"
+                                        target="_blank">KEI Garou</a>
+                                    </small>
+
+                                    <img width="235" src="images/rinlenprofile.jpg" 
+                                        alt="Kagamine Rin & Len" title="Kagamine Rin & Len">
+                                    <p>
+                                        <button class="leftbtn">←</button>
+                                        <span class="label">Rin & Len</span>
+                                        <button class="rightbtn">→</button>
+                                    </p>
+                                    <p>
+                                        <button class="playaudiobtn"></button>
+                                    </p>
+                                </div>
+
+                                <div class="textbox">
+                                    <p>Name: Kagamine Rin & Len ★ 鏡音リン・レン</p>
+                                    <p>Release Date: 27 December 2007</p>
+                                    <p>Voice Provider: Asami Shimoda</p>
+
+                                    <p>
+                                        Kagamine Rin and Len are Japanese vocaloids that were developed and distributed by Crypton Future Media, Inc.
+                                         They were initially released in December 2007 for the VOCALOID2 engine as a pair of female and male voicebanks.
+                                         They are the second set of vocals for the Character Vocal Series.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="textbox-grid">
+                                <div class="box">
+                                    <small>
+                                        Illustrated by 
+                                        <a class="fontdark" href="https://x.com/keigarou?lang=en"
+                                        target="_blank">KEI Garou</a>
+                                    </small>
+
+                                    <img width="235" src="images/lukaprofile.jpg" 
+                                        alt="Megurine Luka" title="Megurine Luka">
+                                    <p>
+                                        <button class="leftbtn">←</button>
+                                        <span class="label">Luka</span>
+                                        <button class="rightbtn">→</button>
+                                    </p>
+                                    <p>
+                                        <button class="playaudiobtn"></button>
+                                    </p>
+                                </div>
+
+                                <div class="textbox">
+                                    <p>Name: Megurine Luka ★ 巡音ルカ</p>
+                                    <p>Release Date: 30 January 2009</p>
+                                    <p>Voice Provider: Yū Asakawa</p>
+
+                                    <p>
+                                        Megurine Luka is a Japanese vocaloid that was developed and distributed by Crypton Future Media, Inc.
+                                         She was initially released in January 2009 for the VOCALOID2 engine and was the third member of the Character Vocal Series.
+                                         She was the first vocaloid designed to fully support producing vocals in both Japanese and English.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="textbox-grid">
+                                <div class="box">
+                                    <small class="fontdark">
+                                        Illustrated by Shogo Washizu
+                                    </small>
+
+                                    <img width="235" src="images/meikoprofile.jpg" 
+                                        alt="MEIKO" title="MEIKO">
+                                    <p>
+                                        <button class="leftbtn">←</button>
+                                        <span class="label">MEIKO</span>
+                                        <button class="rightbtn">→</button>
+                                    </p>
+                                    <p>
+                                        <button class="playaudiobtn"></button>
+                                    </p>
+                                </div>
+
+                                <div class="textbox">
+                                    <p>Name: MEIKO ★ メイコ</p>
+                                    <p>Release Date: 5 November 2004</p>
+                                    <p>Voice provider: Meiko Haigō</p>
+
+                                    <p>
+                                        MEIKO is a Japanese vocaloid that was originally developed by Yamaha Corporation and distributed by Crypton Future Media, Inc.
+                                         She was one of the 4 known "Project Daisy" vocals and was initially released in November 2004 as the first Japanese vocal library released for the first VOCALOID engine.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="textbox-grid">
+                                <div class="box">
+                                    <small class="fontdark">
+                                        Illustrated by Takashi Kawasaki
+                                    </small>
+
+                                    <img width="235" src="images/kaitoprofile.jpg" 
+                                        alt="KAITO" title="KAITO">
+                                    <p>
+                                        <button class="leftbtn">←</button>
+                                        <span class="label">KAITO</span>
+                                        <button class="rightbtn">→</button>
+                                    </p>
+                                    <p>
+                                        <button class="playaudiobtn"></button>
+                                    </p>
+                                </div>
+
+                                <div class="textbox">
+                                    <p>Name: KAITO ★ カイト</p>
+                                    <p>Release Date: 14 February 2006</p>
+                                    <p>Voice Provider: Naoto Fūga</p>
+
+                                    <p>
+                                        KAITO is a Japanese vocaloid that was originally developed by Yamaha Corporation and distributed by Crypton Future Media, Inc.
+                                        He was one of the 4 known "Project Daisy" vocals and was initially released in February 2006 for the first VOCALOID engine.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </article>
+                    </div>
+                </div>
+                
+                <footer>
+                    <a href="#mainpageheader">Jump to top!</a>
+                    <p>MADE BY ASHLYN KUAK ★ 郭语捷</p>
+                </footer>
+            </section>
+
+            <section class="page" id="page3">
+                <header>
+                    <h2 class="pageheader">★ PRODUCERS ★</h2>
+                </header>
+
+                <div class="content">
+                    <nav class= "contentnav">
+                        <h2>𐙚NAV</h2>
+                            <h3>CONTENTS</h3>
+                            <ul class="ulnav">
+                                <li><a href="#producer">What are Producers?</a></li>
+                                <li><a href="#favs">Favourite producers</a></li>
+                            </ul>
+                    </nav>
+            
+                    <div class="main">
+                        <article>
+                            <!-- container for text-img grid -->
+                            <div class="text-img">
+                                <div class="text">
+                                    <h2 id="producer">
+                                        What are Producers? ⁀➴⊹ ࣪ ˖
+                                    </h2>
+                                    <p>
+                                        Vocaloid producers are musicians who create songs using Vocaloid software.
+                                        They utilise various voicebanks to compose and produce music.
+                                        These producers are the core of the Vocaloid community, contributing original songs that shape Vocaloid as a music genre.
+                                    </p>
+                                </div>
+                    
+                                <p class="img">
+                                    <img width="435" src="images/vocaloids.jpg" 
+                                    alt="A picture of the vocaloids" title="Vocaloids">
+
+                                    <small>
+                                        Miku, Rin&Len, Luka illustrated by 
+                                        <a class="fontdark" href="https://x.com/keigarou?lang=en"
+                                        target="_blank">KEI Garou</a>
+                                    </small>
+                                    <small>
+                                        MEIKO, KAITO illustrated by 
+                                        <a class="fontdark" href="https://x.com/iximaxima?lang=en"
+                                        target="_blank">iXima</a>
+                                    </small>
+                                </p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <h2 id="favs">
+                                Favourite Producers ⁀➴⊹ ࣪ ˖
+                            </h2>
+                            <p>Here are some of my favourite producers.</p>
+
+                                <div class="boxp">
+                                    <div class="box">
+                                        <small>
+                                            Illustrator unknown
+                                        </small>
+
+                                        <img width="235" src="images/iyowa.jpg" 
+                                            alt="Iyowa" title="Iyowa">
+                                        <p>Iyowa</p>
+                                        <button id="iyowaytbtn" class="ytbtn"></button>
+                                        <button id="iyowaspotifybtn" class="spotifybtn"></button>
+                                    </div>
+                                    
+                                    <div class="box">
+                                        <small>
+                                            Illustrator unknown
+                                        </small>
+
+                                        <img width="235" src="images/syudou.jpg" 
+                                        alt="Syudou" title="Syudou">
+                                        <p>Syudou</p>
+                                        <button id="syudouytbtn" class="ytbtn"></button>
+                                        <button id="syudouspotifybtn" class="spotifybtn"></button>     
+                                    </div>
+
+                                    <div class="box">
+                                        <small>
+                                            Illustrated by 
+                                            <a class="fontdark" href="https://si-ku.art/"
+                                            target="_blank">si_ku</a>
+                                        </small>
+
+                                        <img width="235" src="images/kikuo.jpg" 
+                                        alt="Kikuo" title="Kikuo">
+                                        <p>Kikuo</p>  
+                                        <button id="kikuoytbtn" class="ytbtn"></button>
+                                        <button id="kikuospotifybtn" class="spotifybtn"></button>
+                                    </div>
+                                </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <footer>
+                    <a href="#mainpageheader">Jump to top!</a>
+                    <p>MADE BY ASHLYN KUAK ★ 郭语捷</p>
+                </footer>
+            </section>
+
+            <section class="page" id="page4">
+                <header>
+                    <h2 class="pageheader">★ HOW TO USE? ★</h2>
+                </header>
+
+                <div class="content">
+                    <nav class= "contentnav">
+                        <h2>𐙚NAV</h2>
+                            <h3>CONTENTS</h3>
+                            <ul class="ulnav">
+                                <li><a href="#software">Software Needed</a></li>
+                                <li><a href="#links">Helpful Links</a></li>
+                            </ul>
+                    </nav>
+            
+                    <div class="main">
+                        <article>
+                            <!-- container for text-img grid -->
+                            <div class="text-img">
+                                <div class="text">
+                                    <h2 id="software">
+                                        Software Needed ⁀➴⊹ ࣪ ˖
+                                    </h2>
+
+                                    <h3>Vocaloid Editor</h3>
+                                    <p>Software to edit lyrics and melodies for Vocaloids to sing.</p>
+
+                                    <h3>Voicebank</h3>
+                                    <p>A voicebank that suits the song you want to make.</p>
+                                </div>
+                    
+                                <p class="img">
+                                    <img width="435" src="images/vocaloid6software.jpg" 
+                                    alt="VOCALOID6 user interface" title="V6 UI">
+
+                                    <small>
+                                        Image from VOCALOID6 © 
+                                        <a class="fontdark" href="https://www.vocaloid.com/en/vocaloid6/"
+                                        target="_blank">VOCALOID</a>
+                                    </small>
+                                </p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <h2 id="links">
+                                Helpful Links ⁀➴⊹ ࣪ ˖
+                            </h2>
+                            <p>Here is a playlist of helpful videos that you can reference! Have fun!</p>
+                            <div class="vidcontainer">
+                                <iframe class="responsive-iframe"
+                                    width="560" height="315"
+                                    src="https://www.youtube.com/embed/videoseries?si=VAgd34WVZxibRega&amp;list=PLKjhsKpX5zp8UQzeUjFvOohS9NGTj-XBe"
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <footer>
+                    <a href="#mainpageheader">Jump to top!</a>
+                    <p>MADE BY ASHLYN KUAK ★ 郭语捷</p>
+                </footer>
+            </section>
+
+            <section class="page" id="page5">
+                <header>
+                    <h2 class="pageheader">★ EVENTS & CONCERTS ★</h2>
+                </header>
+
+                <div class="content">
+                    <nav class= "contentnav">
+                        <h2>𐙚NAV</h2>
+                            <h3>CONTENTS</h3>
+                            <ul class="ulnav">
+                                <li><a href="#concert">How are Vocaloid Concerts Like?</a></li>
+                                <li><a href="#events">Prominent Events</a></li>
+                                <li><a href="#minigame">Concert Planner Minigame</a></li>
+                            </ul>
+                    </nav>
+            
+                    <div class="main">
+                        <article>
+                            <!-- container for text-img grid -->
+                            <div class="text-img">
+                                <div class="text">
+                                    <h2 id="concert">
+                                        How are Vocaloid Concerts Like? ⁀➴⊹ ࣪ ˖
+                                    </h2>
+                                    <p>
+                                        These concerts feature the vocaloids projected onto a screen to make it seem like they are there in person.
+                                        There will also be a live band playing onstage as well as back-up dancers in some cases.
+                                    </p>
+                                </div>
+                    
+                                <p class="img">
+                                    <img width="435" src="images/mikuconcert.jpg" 
+                                    alt="Miku at a concert" title="Miku concert">
+
+                                    <small>
+                                        Image from piapro.net © 
+                                        <a class="fontdark" href="https://piapro.net/japantour2025/index_en.html"
+                                        target="_blank">piapro</a>
+                                    </small>
+                                </p>
+                            </div>
+                        </article>
+
+                        <article>
+                            <h2 id="events">
+                                Prominent Events ⁀➴⊹ ࣪ ˖
+                            </h2>
+                            <p>
+                                There have been many Vocaloid events and concerts held across the years.
+                                Below only lists down some of the most prominent events but
+                                <a href="https://vocaloid.fandom.com/wiki/Musical_events" class="fontdark" target="_blank">here</a>
+                                is a full list of official events if you want to delve deeper.
+                            </p>
+
+                            <h3>Miku Expo</h3>
+                            <img width="435" src="images/mikuexpo.jpg" 
+                                alt="MIKU EXPO 2025 promotional poster" title="MIKU EXPO">
+                            <small>
+                                Illustrated by 
+                                <a class="fontdark" href="https://x.com/ritao_kamo"
+                                target="_blank">RITAO</a>
+                            </small>
+
+                            <p>
+                                Miku Expo is a series of annual world tours organised by Crypton Future Media starring Hatsune Miku since 2014.
+                                these tours are held to celebrate and showcase the virtual pop star and the creative culture surrounding her.
+                                However, during the pandemic, virtual events were held instead.
+                                In 2025, the Miku Expo will be held in Singapore for the first time.
+                                The event is scheduled for November 19 at The Star Theatre.
+                            </p>
+
+                            <h3>Hatsune Miku "Magical Mirai"</h3>
+                            <img width="435" src="images/magicalmirai.jpg" 
+                                alt="Magical Mirai 2025 promotional poster" title="Magical Mirai">
+                            <small>
+                                Illustrated by 
+                                <a class="fontdark" href="https://x.com/tiv_"
+                                target="_blank">Tiv</a>
+                            </small>
+
+                            <p>Magical Mirai has been held annually since 2013 to celebrate Miku's birthday, usually taking place in Tokyo.
+                                It is typically held on a weekend in late August or early September.
+                                Along with the concert itself, there is also an exhibition that displays fan-made artwork, merchandise and interactive exhibits as well as a programming contest that'sbeen held annually since Magical Mirai's 10th anniversary.
+                            </p>
+
+                            <h3>Snow Miku Festival</h3>
+                            <img width="435" src="images/snowmiku.jpg" 
+                                alt="Snow Miku 2025 promotiona; poster" title="Snow Miku">
+                            <small>
+                                Illustrated by 
+                                <a class="fontdark" href="https://x.com/tokki_517"
+                                target="_blank">tokki</a>
+                            </small>
+
+                            <p>
+                                The Snow Miku festival is an annual winter event that has been held in Hokkaido since 2010, featuring a winter-themed version of Hatsune Miku.
+                                Each year, a new Snow Miku costume design is chosen through an online competition, with different themes each year.
+                                It is held to celebrate Hokkaido's winter, with various events and attractions, including a large snow sculpture of Snow Miku as the central attraction.
+                                The festival is closely linked to the Sapporo Snow Festival and also includes stage shows, merchandise sales, and even a Snow Miku-themed tram. 
+                            </p>
+                        </article>
+
+                        <article>
+                            <h2 id="minigame">Concert Planner Minigame ⁀➴⊹ ࣪ ˖</h2>
+                            <div class="box">
+                                <p>Pick a song, stage lighting, and outfit for a Vocaloid concert!</p>
+
+                                <div class="minigame-form">
+                                <label for="song">Song:</label>
+                                <select id="song">
+                                    <option value="">Choose a song</option>
+                                    <option value="10">Melt</option>
+                                    <option value="8">Tell Your World</option>
+                                    <option value="9">World is Mine</option>
+                                </select>
+
+                                <label for="lighting">Lighting:</label>
+                                <select id="lighting">
+                                    <option value="">Choose lighting</option>
+                                    <option value="6">Spotlight</option>
+                                    <option value="10">Lasers</option>
+                                    <option value="8">Green Lights</option>
+                                </select>
+
+                                <label for="outfit">Outfit:</label>
+                                <select id="outfit">
+                                    <option value="">Choose an outfit</option>
+                                    <option value="6">Classic Outfit</option>
+                                    <option value="4">Casual Hoodie</option>
+                                    <option value="9">15th Anniversary Outfit</option>
+                                </select>
+                                </div>
+
+                                <p></p>
+                                <div id="timerBar"></div>
+                                
+                                <div class="concert-stage">
+                                    <img class="bg" width="500" src="images/concertbg.png"
+                                    alt="Background" title="Concert BG">
+                                    <img id="starClicker" width="150" src="images/star.png"
+                                    alt="star clicker" title="Star Clicker">
+                                    <img class="outfit" width="500" src="images/concertdefaultfit.png"
+                                    alt="Outffit" title="Concert Outfit">
+                                    <img class="lighting" width="500" src="images/concerttransparent.png"
+                                    alt="Lighting" title="Concert Lighting">
+                                </div>
+                                <div>
+                                <button id="startconcertbtn">★ START ★</button>
+                                </div>
+
+                                <p></p>
+                                <div id="result" class="result"></div>
+                                <p></p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <footer>
+                    <a href="#mainpageheader">Jump to top!</a>
+                    <p>MADE BY ASHLYN KUAK ★ 郭语捷</p>
+                </footer>
+            </section>
+        </main>
+    </body>
+
+</html>

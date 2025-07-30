@@ -1,0 +1,770 @@
+@font-face {
+    font-family: 'Amoria';
+    src: url('./fonts/amoria.otf') format('truetype');
+}
+
+.page {
+    width:95vw;
+    opacity: 1;
+    transition: opacity 0.7s ease;
+}
+.page.fade-out {
+  opacity: 0;
+}
+
+nav ul li {display:inline;}
+
+#page1 {
+    background:darkcyan;
+    position: relative;
+}
+#page2, #page3, #page4, #page5 {background:darkcyan}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+button {
+    background:rgb(0, 197, 197);
+    color: rgb(255, 252, 244);
+    border: none;
+    padding: 3%;
+    height: 100%;
+    border-radius: 0.5rem; /* rounded corners */
+    cursor: pointer; /* cursor changes on hover */
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: rgb(0, 143, 143);
+    scale: 120%;
+}
+
+#page1btn {
+    background:rgb(231, 189, 0);
+}
+#page1btn:hover {
+    background-color: rgb(231, 154, 0);
+}
+
+#page2btn {
+    background:rgb(231, 158, 0);
+}
+#page2btn:hover {
+    background-color: rgb(231, 129, 0);
+}
+
+#page3btn {
+    background:rgb(255, 138, 191);
+}
+#page3btn:hover {
+    background-color: rgb(223, 100, 155);
+}
+
+#page4btn {
+    background:rgb(255, 127, 127);
+}
+#page4btn:hover {
+    background-color: rgb(237, 96, 96);
+}
+
+#page5btn {
+    background:rgb(138, 152, 255);
+}
+#page5btn:hover {
+    background-color: rgb(115, 127, 234);
+}
+
+body {
+    background-color: rgb(255, 252, 244);
+    font-size: 100%;
+}
+
+header {
+    background-color: rgb(36, 113, 106);
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1%;
+}
+
+.mainpageheader {
+    background-color: rgb(255, 252, 244);
+    color: rgb(36, 113, 106);
+    padding:0%;
+}
+
+/* flex for nav and main */
+.content {
+    display: flex;
+    align-items: flex-start;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.contentnav {
+    background-color: darkcyan;
+    color:rgb(255, 252, 244);
+    justify-content: left;
+    text-align: center;
+    flex-direction: column;
+    width:30%;
+    position: sticky;
+    top: 0;
+}
+.contentnav ul {
+    flex-direction: column;
+    padding-left: 1%;
+}
+
+main, .main {
+    background-color: rgb(255, 252, 244);
+    color: rgb(36, 113, 106);
+    width: 70%;
+    padding: 2%;
+}
+
+h1, .pageheader {
+    font-family: 'Amoria', sans-serif;
+    color: rgb(255, 252, 244);
+    text-align: center;
+    font-size: 3.5em;
+}
+h2 {
+    font-family: 'Amoria', sans-serif;
+    font-size: 2.5em;
+    margin: 1%;
+}
+h3 {
+    font-size: 1.5em;
+    margin: 1%;
+    padding: 1%;
+}
+
+/* so that h2 and h3 is only centered for index.html */
+.center {
+    text-align: center;
+}
+
+ul {
+    padding: 1%;
+    font-size: 1.2em;
+}
+
+.ulnav {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 1%;
+    padding: 1%;
+}
+
+/* mostly used for attribution */
+small {
+    display: block;
+    text-align: center;
+    padding: 1%;
+    color:rgb(36, 113, 106);
+}
+
+a {
+    color: rgb(255, 252, 244);
+}
+
+/* so that href a text on light bg is visible */
+.fontdark {
+    color: rgb(36, 113, 106);
+}
+
+a:hover {
+    color: darkseagreen;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* grid container to put text and img side by side */
+.text-img {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2em;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+}
+
+.text-img img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    padding-right: 5%;
+}
+
+.vidcontainer {
+    text-align: center;
+}
+
+/* responsive iframe video */
+.vidcontainer {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+}
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    padding-right: 5%;
+}
+
+.box {
+    background-color: rgb(255, 252, 244);
+    border: 2px solid rgb(36, 113, 106);
+    border-radius: 0.5rem; /* rounded corners */
+    text-align: center;
+    font-weight: bold;
+}
+
+.boxp {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 5%;
+}
+
+.box img {
+    padding: 5%;
+}
+
+.label {
+    display: inline-block;
+    margin: 0 3%;
+}
+
+.textbox-grid {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.textbox {
+    padding: 3%;
+}
+
+.starbtn {
+    display: flex; 
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 2% 0;
+}
+
+.star {
+    height: 10vh;
+    width: 10vh;
+    padding: 1% 3%;
+    margin: 1%;
+    background-image: url('images/mikustar.jpg'); 
+    background-size: cover;
+    background-color: transparent;
+}
+
+.ytbtn {
+    height: 10vh;
+    width: 10vh;
+    padding: 1% 3%;
+    margin: 1%;
+    background-image: url('images/mikuyt.jpg'); 
+    background-size: cover;
+    background-color: transparent;
+}
+
+.spotifybtn {
+    height: 10vh;
+    width: 10vh;
+    padding: 1% 3%;
+    margin: 1%;
+    background-image: url('images/mikuspotify.jpg'); 
+    background-size: cover;
+    background-color: transparent;
+}
+
+.playaudiobtn {
+    height: 10vh;
+    width: 10vh;
+    padding: 1% 3%;
+    margin: 1%;
+    background-image: url('images/playaudio.jpg'); 
+    background-size: cover;
+    background-color: transparent;
+}
+
+.playaudiobtn.paused {
+  background-image: url("images/pauseaudio.jpg");
+}
+
+/* to align specific parts of text */
+.centralise {
+    text-align: center;
+}
+.topright-corner {
+    position: relative;
+}
+#btnFS {
+    position: absolute;
+    right: 0;
+    scale: 50%;
+    height: 10vh;
+    width: 10vh;
+    padding: 1% 3%;
+    margin: 1%;
+    background-image: url("images/fullscreen.jpg"); 
+    background-size: cover;
+    background-color: transparent;
+}
+
+.star:hover, .ytbtn:hover, .spotifybtn:hover,
+.playaudiobtn:hover, #btnFS:hover, #btnWS:hover {
+    background-color: rgb(255, 252, 244);
+    border: 2px solid rgb(36, 113, 106);
+}
+
+#startconcertbtn {
+    font-size: 150%;
+    font-weight: bold;
+    font-family: 'Amoria', sans-serif;
+    padding: 2%;
+}
+
+select {
+    color: rgb(36, 113, 106);
+    border: 2px solid rgb(36, 113, 106);
+}
+
+label {
+    padding-left: 2%;
+}
+
+.concert-stage {
+    position: relative;
+    width: 90%;
+    max-width: 120rem;
+    aspect-ratio: 16 / 9;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.concert-stage img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    left: 0;
+    top: 0;
+    padding: 0;
+    padding-bottom: 3%;
+}
+
+/* layering concert imgs */
+.concert-stage .bg {
+    z-index: 1;
+}
+
+.concert-stage .outfit {
+    z-index: 2;
+}
+
+.concert-stage .lighting {
+    z-index: 3;
+}
+
+#starClicker {
+    position: absolute;
+    display: none;
+    width: 10%;
+    transition: all 0.5s ease;
+    z-index: 4;
+    cursor: pointer;
+}
+#starClicker.shrink
+{
+    width: 5vw;
+    width: 5%;
+}
+
+@keyframes starFrames{
+    0%{rotate:0deg}
+    12%{rotate:45deg}
+    25%{rotate:90deg}
+    37%{rotate:135deg}
+    50%{rotate:180deg}
+    62%{rotate:225deg}
+    75%{rotate:270deg}
+    87%{rotate:315deg}
+    100%{rotate:360deg}
+}
+#starClicker.anim1{ animation: starFrames 0.5s;}
+
+.star-points {
+  position: absolute;
+  color: gold;
+  font-size: 1.2rem;
+  font-weight: bold;
+  pointer-events: none;
+  animation: floatUp 0.8s ease-out forwards;
+  z-index: 5;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+#timerBar {
+  top: 2%;
+  left: 10%;
+  width: 70%;
+  height: 2vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3%;
+  z-index: 5;
+  display: none;
+  background-color: antiquewhite;
+}
+
+#timerBar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, darkcyan, rgb(0, 197, 197));
+  animation: countdown 10s linear forwards;
+}
+
+@keyframes countdown {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+
+@keyframes popupFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popupFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 10%;
+  right: 20%;
+  width: 60%;
+  background-color: rgb(255, 252, 244);
+  border: 2px solid rgb(36, 113, 106);
+
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.popup.show {
+  display: block;
+  animation: popupFadeIn 0.3s forwards;
+}
+
+.popup.hide {
+  animation: popupFadeOut 0.3s forwards;
+}
+
+.popup p {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Amoria', sans-serif;
+}
+
+.popup ul {
+    padding: 2%;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(0, 197, 197);
+    color: rgb(255, 252, 244);
+    padding: 0.5em 1em;
+    font-weight: bold;
+}
+
+.popup-body {
+    padding: 1em;
+}
+
+.closebtn {
+  background: rgb(255, 127, 127);
+  color: rgb(255, 252, 244);
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0.3em 0.6em;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+    background-color: rgb(237, 96, 96);
+}
+
+footer {
+    background: rgb(36, 113, 106);
+    color: rgb(255, 252, 244);
+    text-align: center;
+    font-size: 1.2em;
+    padding: 2%;
+}
+footer a, footer p {
+    font-family: 'Amoria', sans-serif;
+    font-size: 1.2em;
+}
+
+/*CSS for responsive menu*/
+#hamIcon{display:none;}
+
+@media screen and (max-width:800px){
+    body {
+        overflow-x: hidden;
+    }
+    
+    nav {
+        display: block;
+        justify-items: center;
+    }
+    nav ul li {
+        width: 100%;
+        padding: 5%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    nav button {
+        padding: 1.5%;
+        width: 100%;
+    }
+    nav ul li button {
+        padding: 5%;
+    }
+    
+    /* unhide menu icon */
+    #hamIcon{
+        background-color: rgb(36, 113, 106);
+        display: block;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #hamIcon:hover {
+        background-color: rgb(0,197,197);
+    }
+    /*hide the menu item list*/
+    nav ul{
+        display:none;
+    }
+    /* show the menu */
+    nav ul.menuShow {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 30% 30% 30%;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        gap: 2%;
+    }
+
+    #pagecontainer {
+        padding: 2%;
+    }
+    
+    header, footer {
+        font-size: 95%;
+    }
+
+    .content {
+        display: block;
+    }
+
+    /* top sticky navbar */
+    .contentnav {
+        background-color: darkcyan;
+        font-size: 80%;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        height: auto;
+        z-index: 100;
+        margin: 0;
+    }
+
+    .contentnav ul li {
+        padding: 1.5%;
+    }
+
+    nav h2{
+        display: none;
+    }
+    nav h3 {
+        display: inline;
+        text-align:center;
+        font-size: 1em;
+    }
+
+    .ulnav {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+
+    main, .main{
+        width: 100%;
+        padding: 5%;
+        margin: 0;
+        font-size: 120%;
+    }
+
+    h1, .pageheader {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1em;
+    }
+
+    ul {
+        font-size: 1em;
+        margin: 2%;
+    }
+
+    .text-img {
+        grid-template-columns: 100%;
+    }
+
+    .starbtn {
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 2% 0;
+    }
+
+    .popup-header {
+        font-size: 0.7em;
+    }
+
+    p, .popup ul li {
+        font-size: 0.7em;
+    }
+
+    .box {
+        padding: 15%;
+        padding-top: 5%;
+    }
+
+    .box img{
+        padding: 0;
+    }
+
+    .textbox-grid {
+        grid-template-columns: 100%;
+        grid-template-rows: 60% 40%;
+    }
+
+    .leftbtn, .rightbtn {
+        padding: 2%;
+    }
+
+    .span {
+        font-size: 1.5em;
+    }
+
+    .playaudiobtn {
+        margin: 0;
+    }
+
+    .minigame-form {
+        display: grid;
+        grid-template-columns: 30% 65%;
+        grid-template-rows: 30% 30% 30%;
+        text-align: left;
+    }
+
+    label {
+        padding-left: 10%;
+    }
+
+    .concert-stage img {
+        width: 110%;
+        height: 110%;
+    }
+
+    #startconcertbtn {
+        font-size: 100%;
+        padding: 2%;
+        margin-top: 5%;
+    }
+
+    #timerBar {
+        top: 2%;
+        width: 60%;
+        margin-bottom: 3%;
+    }
+
+    #qrCodeImg, #btnFS{display:none;}
+}
+
+/*to unhide menu items*/
+.menuShow{display:block;}
