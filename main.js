@@ -1,62 +1,56 @@
-/* jshint esversion: 6 */
-
-// fullscreen
-const btnFS=document.querySelector("#btnFS");
-btnFS.addEventListener("click", () => {
+// toggle fullscreen 
+var btnFS = document.querySelector("#btnFS");
+btnFS.addEventListener("click", function () {
   clickSound.play();
   if (!document.fullscreenElement) {
-    // Enter fullscreen
-    btnFS.style.backgroundImage = 'url("images/exitfullscreen.png")';
+    btnFS.style.backgroundImage = 'url("images/exitfullscreen.jpg")';
     if (document.documentElement.requestFullscreen) {
       document.documentElement.requestFullscreen();
-    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+    } else if (document.documentElement.mozRequestFullScreen) {
       document.documentElement.mozRequestFullScreen();
-    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+    } else if (document.documentElement.webkitRequestFullscreen) {
       document.documentElement.webkitRequestFullscreen();
-    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+    } else if (document.documentElement.msRequestFullscreen) {
       document.documentElement.msRequestFullscreen();
     }
   } else {
-    // Exit fullscreen
-    btnFS.style.backgroundImage = 'url("images/fullscreen.png")';
+    btnFS.style.backgroundImage = 'url("images/fullscreen.jpg")';
     if (document.exitFullscreen) {
       document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) { // Firefox
+    } else if (document.mozCancelFullScreen) {
       document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
+    } else if (document.webkitExitFullscreen) {
       document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { // IE/Edge
+    } else if (document.msExitFullscreen) {
       document.msExitFullscreen();
     }
   }
 });
 
-// target all elements to save to constants
-const homebtn = document.querySelector("#homebtn");
-const page1btn = document.querySelector("#page1btn");
-const page2btn = document.querySelector("#page2btn");
-const page3btn = document.querySelector("#page3btn");
-const page4btn = document.querySelector("#page4btn");
-const page5btn = document.querySelector("#page5btn");
-const allpages = document.querySelectorAll(".page");
-//click sfx
-const clickSound = new Audio("audio/buttonclick.mp3");
+// page btns
+var homebtn = document.querySelector("#homebtn");
+var page1btn = document.querySelector("#page1btn");
+var page2btn = document.querySelector("#page2btn");
+var page3btn = document.querySelector("#page3btn");
+var page4btn = document.querySelector("#page4btn");
+var page5btn = document.querySelector("#page5btn");
+var allpages = document.querySelectorAll(".page");
+var clickSound = new Audio("audio/buttonclick.mp3");
 
-// for menu
-const hamBtn = document.querySelector("#hamIcon");
-const menuItemsList = document.querySelector("nav ul");
+// toggle menu visibility 
+var hamBtn = document.querySelector("#hamIcon");
+var menuItemsList = document.querySelector("nav ul");
 hamBtn.addEventListener("click", toggleMenus);
 
-// for popup windows
-const starButtons = document.querySelectorAll(".star");
-const popups = document.querySelectorAll(".popup");
-const closeBtns = document.querySelectorAll(".closebtn");
+// star popup btns
+var starButtons = document.querySelectorAll(".star");
+var popups = document.querySelectorAll(".popup");
+var closeBtns = document.querySelectorAll(".closebtn");
 
-// for voicebank page switch
-const vocaloidSections = document.querySelectorAll(".textbox-grid, .textbox-grid2");
+// vocaloid page sections
+var vocaloidSections = document.querySelectorAll(".textbox-grid, .textbox-grid2");
 
-// for voicebank audio
-const audioFiles = [
+var audioFiles = [
   new Audio("audio/miku.mp3"),
   new Audio("audio/rinlen.mp3"),
   new Audio("audio/luka.mp3"),
@@ -64,267 +58,249 @@ const audioFiles = [
   new Audio("audio/kaito.mp3")
 ];
 
-const buttons = document.querySelectorAll(".playaudiobtn");
-// keep track of currently playing audio
-let currentlyPlayingIndex = null;
-let currentAudio = null;
+var audiobtn = document.querySelectorAll(".playaudiobtn");
+var currentlyPlayingIndex = null;
+var currentAudio = null;
+var currentPage = 0;
+var currentVocaloid = 0;
 
-// track current visible page
-let currentPage = 0;
-
-// track current vocaloid/voicebank page
-let currentVocaloid = 0;
-
+// hide all pages by default
 function hideall() {
-    allpages.forEach(page => {
-      page.style.display = "none";
-      page.style.opacity = 1;
-      page.classList.remove("fade-out");
-    });
+  for (var i = 0; i < allpages.length; i++) {
+    allpages[i].style.display = "none";
+    allpages[i].style.opacity = 1;
+    allpages[i].classList.remove("fade-out");
+  }
 }
 
+// stop all audio
 function stopAllAudio() {
-  // stop concert audio
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
   }
-
-  // stop voicebank audios
-  audioFiles.forEach((audio, i) => {
-    audio.pause();
-    audio.currentTime = 0;
-    buttons[i].classList.remove("paused");
-  });
-
-  // reset state
+  for (var i = 0; i < audioFiles.length; i++) {
+    audioFiles[i].pause();
+    audioFiles[i].currentTime = 0;
+    audiobtn[i].classList.remove("paused");
+  }
   currentlyPlayingIndex = null;
 }
 
+// btn to show pages
 function show(newPage) {
   stopAllAudio();
   clickSound.play();
-  if (newPage === currentPage) return; // do nothing if same page
-
-  const oldPage = document.querySelector("#page" + currentPage);
-  const nextPage = document.querySelector("#page" + newPage);
-
+  if (newPage === currentPage) return;
+  var oldPage = document.querySelector("#page" + currentPage);
+  var nextPage = document.querySelector("#page" + newPage);
   if (!nextPage) return;
 
-  // fade out old page
+  // fade transition
   oldPage.classList.add("fade-out");
-
-  setTimeout(() => {
-    // hide old page after fade out
+  setTimeout(function () {
     oldPage.style.display = "none";
     oldPage.classList.remove("fade-out");
-
-    // show and fade in new page
     nextPage.style.display = "block";
     nextPage.style.opacity = 0;
-
-    // enable transition
     void nextPage.offsetWidth;
-
     nextPage.style.opacity = 1;
-
     currentPage = newPage;
-  }, 700); // match CSS transition duration
+  }, 700);
 }
 
-/* Listen for clicks on the buttons, assign anonymous
-event handler functions to call show function */
-homebtn.addEventListener("click", () => show(0));
-page1btn.addEventListener("click", () => show(1));
-page2btn.addEventListener("click", () => show(2));
-page3btn.addEventListener("click", () => show(3));
-page4btn.addEventListener("click", () => show(4));
-page5btn.addEventListener("click", () => show(5));
+homebtn.addEventListener("click", function () { show(0); });
+page1btn.addEventListener("click", function () { show(1); });
+page2btn.addEventListener("click", function () { show(2); });
+page3btn.addEventListener("click", function () { show(3); });
+page4btn.addEventListener("click", function () { show(4); });
+page5btn.addEventListener("click", function () { show(5); });
 
-// Initialize: hide all and show page0
 hideall();
+// show homepage menu by default
 document.querySelector("#page0").style.display = "block";
 currentPage = 0;
 
+// toggle menu visibility
 function toggleMenus() {
-  // toggle menu visibility
   menuItemsList.classList.toggle("menuShow");
   clickSound.play();
+  hamBtn.innerHTML = menuItemsList.classList.contains("menuShow") ? "Close Menu" : "Open Menu";
+}
 
-  if (menuItemsList.classList.contains("menuShow")) {
-    hamBtn.innerHTML = "Close Menu";
-  } else {
-    hamBtn.innerHTML = "Open Menu";
+// show popup when clicking star btn
+function starButtonClickHandler() {
+  clickSound.play();
+  var targetPopup = document.getElementById(this.dataset.popup);
+  if (targetPopup) {
+    targetPopup.style.display = "block";
+    targetPopup.classList.remove("hide");
+    targetPopup.classList.add("show");
   }
 }
 
-// open popup
-starButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    clickSound.play();
-    const targetPopup = document.getElementById(button.dataset.popup);
-    if (targetPopup) {
-      // show popup and reset display so animation can run
-      targetPopup.style.display = "block";
-      targetPopup.classList.remove("hide");
-      targetPopup.classList.add("show");
-    }
-  });
-});
-
-// close popup
-closeBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    clickSound.play();
-    const popup = btn.closest(".popup");
-    popup.classList.remove("show");
-    popup.classList.add("hide");
-  });
-});
-
-// add listener to handle hiding after animation
-popups.forEach(popup => {
-  popup.addEventListener("animationend", (e) => {
-    if (e.animationName === "popupFadeOut") {
-      popup.style.display = "none";
-      popup.classList.remove("hide");
-    }
-  });
-});
-
-// hide/show vocaloid pages
-function updateVocaloidView(index) {
-  vocaloidSections.forEach((section, i) => {
-    section.style.display = i === index ? "grid" : "none";
-  });
+for (var i = 0; i < starButtons.length; i++) {
+  starButtons[i].addEventListener("click", starButtonClickHandler);
 }
 
-// set initial visible page
+// close popup when clicking close btn
+function closeBtnClickHandler() {
+  clickSound.play();
+  var popup = this.closest(".popup");
+  popup.classList.remove("show");
+  popup.classList.add("hide");
+}
+
+for (var i = 0; i < closeBtns.length; i++) {
+  closeBtns[i].addEventListener("click", closeBtnClickHandler);
+}
+
+// popup animation
+function popupAnimationEndHandler(e) {
+  if (e.animationName === "popupFadeOut") {
+    this.style.display = "none";
+    this.classList.remove("hide");
+  }
+}
+
+for (var i = 0; i < popups.length; i++) {
+  popups[i].addEventListener("animationend", popupAnimationEndHandler);
+}
+
+// vocaloid page sections
+function updateVocaloidView(index) {
+  for (var i = 0; i < vocaloidSections.length; i++) {
+    vocaloidSections[i].style.display = (i === index) ? "grid" : "none";
+  }
+}
 updateVocaloidView(currentVocaloid);
 
-// left/right button clicks
-document.querySelectorAll(".leftbtn").forEach(button => {
-  button.addEventListener("click", () => {
-    currentVocaloid = (currentVocaloid - 1 + vocaloidSections.length) % vocaloidSections.length;
-    updateVocaloidView(currentVocaloid);
-    stopAllAudio();
-    clickSound.play();
-  });
-});
+//  switch sections when clicking left and right btns
+var leftButtons = document.querySelectorAll(".leftbtn");
+function leftBtnClickHandler() {
+  currentVocaloid = (currentVocaloid - 1 + vocaloidSections.length) % vocaloidSections.length;
+  updateVocaloidView(currentVocaloid);
+  stopAllAudio();
+  clickSound.play();
+}
 
-document.querySelectorAll(".rightbtn").forEach(button => {
-  button.addEventListener("click", () => {
-    currentVocaloid = (currentVocaloid + 1) % vocaloidSections.length;
-    updateVocaloidView(currentVocaloid);
-    stopAllAudio();
-    clickSound.play();
-  });
-});
+for (var i = 0; i < leftButtons.length; i++) {
+  leftButtons[i].addEventListener("click", leftBtnClickHandler);
+}
 
-// play audio when clicking button
-buttons.forEach((btn, index) => {
-  btn.addEventListener("click", () => {
-    const selectedAudio = audioFiles[index];
+var rightButtons = document.querySelectorAll(".rightbtn");
+function rightBtnClickHandler() {
+  currentVocaloid = (currentVocaloid + 1) % vocaloidSections.length;
+  updateVocaloidView(currentVocaloid);
+  stopAllAudio();
+  clickSound.play();
+}
 
-    // if alr playing, pause it
+for (var i = 0; i < rightButtons.length; i++) {
+  rightButtons[i].addEventListener("click", rightBtnClickHandler);
+}
+
+// play vocaloid audio sample when clicking play btn
+function audioBtnClickHandler(index) {
+  return function () {
+    var selectedAudio = audioFiles[index];
     if (currentlyPlayingIndex === index && !selectedAudio.paused) {
       selectedAudio.pause();
       selectedAudio.currentTime = 0;
-      btn.classList.remove("paused");
+      audiobtn[index].classList.remove("paused");
       currentlyPlayingIndex = null;
     } else {
-      // pause all other audios
       stopAllAudio();
-
-      // play selected audio
       selectedAudio.play();
-      btn.classList.add("paused");
+      audiobtn[index].classList.add("paused");
       currentlyPlayingIndex = index;
     }
-  });
-});
+  };
+}
 
-// to link to yt and spotify pages
-document.querySelector("#iyowaytbtn").addEventListener("click", () => {
+for (var i = 0; i < audiobtn.length; i++) {
+  audiobtn[i].addEventListener("click", audioBtnClickHandler(i));
+}
+
+// yt and spotify btns
+document.querySelector("#iyowaytbtn").addEventListener("click", function () {
   window.open("https://www.youtube.com/@igusuri_please", "_blank");
 });
-document.querySelector("#iyowaspotifybtn").addEventListener("click", () => {
+document.querySelector("#iyowaspotifybtn").addEventListener("click", function () {
   window.open("https://open.spotify.com/artist/0gox2jF74UUFl8bDQYyTFr", "_blank");
 });
-document.querySelector("#syudouytbtn").addEventListener("click", () => {
+document.querySelector("#syudouytbtn").addEventListener("click", function () {
   window.open("https://www.youtube.com/@syudou_official", "_blank");
 });
-document.querySelector("#syudouspotifybtn").addEventListener("click", () => {
+document.querySelector("#syudouspotifybtn").addEventListener("click", function () {
   window.open("https://open.spotify.com/artist/43XkWaoCS0wKjuMJrWFgoa", "_blank");
 });
-document.querySelector("#kikuoytbtn").addEventListener("click", () => {
+document.querySelector("#kikuoytbtn").addEventListener("click", function () {
   window.open("https://www.youtube.com/@kikuo_sound", "_blank");
 });
-
-document.querySelector("#kikuospotifybtn").addEventListener("click", () => {
+document.querySelector("#kikuospotifybtn").addEventListener("click", function () {
   window.open("https://open.spotify.com/artist/5FhcqamaRFfpZb4VHV47fu", "_blank");
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  // concert options
+  var songSelect = document.getElementById("song");
+  var lightingSelect = document.getElementById("lighting");
+  var outfitImg = document.querySelector(".concert-stage .outfit");
+  var outfitSelect = document.getElementById("outfit");
+  var lightingImg = document.querySelector(".concert-stage .lighting");
+  // concert minigame
+  var button = document.getElementById("startconcertbtn");
+  var star = document.getElementById("starClicker");
+  var resultDiv = document.getElementById("result");
+  var timerBar = document.getElementById("timerBar");
+  var concertScore = 0;
+  var starInterval;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const songSelect = document.getElementById("song");
-  const lightingSelect = document.getElementById("lighting");
-  const outfitImg = document.querySelector(".concert-stage .outfit");
-  const outfitSelect = document.getElementById("outfit");
-  const lightingImg = document.querySelector(".concert-stage .lighting");
-
-  const button = document.getElementById("startconcertbtn");
-  const star = document.getElementById("starClicker");
-  const resultDiv = document.getElementById("result");
-  const timerBar = document.getElementById("timerBar");
-
-  let concertScore = 0;
-  let starInterval;
-
+  // move star around smoothly
   function moveStar() {
-    const randXPercent = 10 + Math.random() * 80; // avoid edges
-    const randYPercent = Math.random() * 60 - 20;
-
+    var randXPercent = 10 + Math.random() * 80;
+    var randYPercent = Math.random() * 60 - 20;
     star.style.left = randXPercent + "%";
     star.style.top = randYPercent + "%";
-
     star.classList.remove("shrink");
     star.classList.add("anim1");
     star.style.display = "block";
   }
 
+  // shrink animation when star is clicked
   function catchStar() {
     concertScore += 3;
     star.classList.add("shrink");
     star.classList.remove("anim1");
     showFloatingPoints("+3", star.style.left, star.style.top);
-    setTimeout(() => (star.style.display = "none"), 300);
+    setTimeout(function () {
+      star.style.display = "none";
+    }, 300);
   }
 
+  // floating +3 animation when star is clicked
   function showFloatingPoints(text, leftPercent, topPercent) {
-    const point = document.createElement("span");
+    var point = document.createElement("span");
     point.textContent = text;
     point.className = "star-points";
-    
     point.style.left = leftPercent;
     point.style.top = topPercent;
-
     document.querySelector(".concert-stage").appendChild(point);
-
-    setTimeout(() => point.remove(), 1000);
+    setTimeout(function () {
+      point.remove();
+    }, 1000);
   }
-
   star.addEventListener("click", catchStar);
 
-  // update song based on chosen option
-  songSelect.addEventListener("change", () => {
-    // stop any previous audio
+  // select and play song based on option chosen
+  songSelect.addEventListener("change", function () {
     if (currentAudio) {
       currentAudio.pause();
       currentAudio.currentTime = 0;
     }
-
-    const song = parseInt(songSelect.value);
+    // add to score based on value
+    var song = parseInt(songSelect.value);
     switch (song) {
       case 10:
         currentAudio = new Audio("audio/melt.mp3");
@@ -336,16 +312,17 @@ document.addEventListener("DOMContentLoaded", () => {
         currentAudio = new Audio("audio/tellyourworld.mp3");
         break;
       default:
-      currentAudio = null;
+        currentAudio = null;
     }
     if (currentAudio) {
       currentAudio.play();
     }
   });
 
-  // update visuals based on chosen options
-  outfitSelect.addEventListener("change", () => {
-    const outfit = parseInt(outfitSelect.value);
+  // select and change outfit based on option chosen
+  outfitSelect.addEventListener("change", function () {
+    // add to score based on value
+    var outfit = parseInt(outfitSelect.value);
     switch (outfit) {
       case 9:
         outfitImg.src = "images/concertannivfit.png";
@@ -361,8 +338,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  lightingSelect.addEventListener("change", () => {
-    const lighting = parseInt(lightingSelect.value);
+  // select and change lighting based on option chosen
+  lightingSelect.addEventListener("change", function () {
+    // add to score based on value
+    var lighting = parseInt(lightingSelect.value);
     switch (lighting) {
       case 10:
         lightingImg.src = "images/concertlaser.png";
@@ -378,52 +357,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // calculate score and start bonus minigame
-  button.addEventListener("click", () => {
+  // start 10s minigame when clicking start btn
+  button.addEventListener("click", function () {
+    // clear results
     resultDiv.innerHTML = "";
-    const song = parseInt(songSelect.value);
-    const lighting = parseInt(lightingSelect.value);
-    const outfit = parseInt(outfitSelect.value);
+    button.disabled = true;
 
+    // get value of chosen options
+    var song = parseInt(songSelect.value);
+    var lighting = parseInt(lightingSelect.value);
+    var outfit = parseInt(outfitSelect.value);
+
+    // if one of the options isnt chosen
     if (isNaN(song) || isNaN(lighting) || isNaN(outfit)) {
-      resultDiv.innerHTML = `<p style="color: crimson;">Please choose a song, lighting, and outfit before starting!</p>`;
+      resultDiv.innerHTML = "<p style='color: crimson;'>Please choose a song, lighting, and outfit before starting!</p>";
       return;
     }
 
-    button.disabled = true; // disable start button
+    // add random boost for unpredictability
+    var randomBoost = Math.floor(Math.random() * 6);
+    var baseScore = song + lighting + outfit + randomBoost;
+    concertScore = 0;
 
-    const randomBoost = Math.floor(Math.random() * 6);
-    const baseScore = song + lighting + outfit + randomBoost;
-    concertScore = 0; // reset bonus score
-
-    // show and restart timer animation
+    // timer bar countdown
     timerBar.style.display = "block";
     timerBar.classList.remove("countdown-reset");
     void timerBar.offsetWidth;
 
-    // start 10s bonus game
     moveStar();
     starInterval = setInterval(moveStar, 1000);
 
-    setTimeout(() => {
+    setTimeout(function () {
       clearInterval(starInterval);
       star.style.display = "none";
       timerBar.style.display = "none";
-      button.disabled = false; // re-enable start button
+      button.disabled = false;
 
-      const finalScore = baseScore + concertScore;
-      let reaction = "";
+      // display results + show audience rating
+      var finalScore = baseScore + concertScore;
+      var reaction = "";
       if (finalScore > 50) reaction = "Legendary Show!!";
       else if (finalScore > 30) reaction = "Great Show!";
       else reaction = "It was... okay!";
 
-      resultDiv.innerHTML = `
-        <p>Base score:  ${baseScore}</p>
-        <p>Bonus points: + ${concertScore}</p>
-        <p>Total Score: <strong>${finalScore}</strong></p>
-        <p>${reaction}</p>
-      `;
+      resultDiv.innerHTML =
+        "<p>Base score: " + baseScore + "</p>" +
+        "<p>Bonus points: + " + concertScore + "</p>" +
+        "<p>Total Score: <strong>" + finalScore + "</strong></p>" +
+        "<p>" + reaction + "</p>";
     }, 10000);
   });
 });
-
