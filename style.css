@@ -94,7 +94,7 @@ header {
     padding:0%;
 }
 
-/* flex for nav and main */
+/* flex for content nav and main */
 .content {
     display: flex;
     align-items: flex-start;
@@ -150,11 +150,6 @@ h3 {
     font-size: 1.5em;
     margin: 1%;
     padding: 1%;
-}
-
-/* so that h2 and h3 is only centered for index.html */
-.center {
-    text-align: center;
 }
 
 ul {
@@ -258,11 +253,13 @@ img {
     padding: 5%;
 }
 
+/* label for each vocaloid's page */
 .label {
     display: inline-block;
     margin: 0 3%;
 }
 
+/* grid container to put box and text side by side */
 .textbox-grid {
     display: grid;
     grid-template-columns: 30% 70%;
@@ -272,6 +269,7 @@ img {
     padding: 3%;
 }
 
+/* star buttons that shows popup on click */
 .starbtn {
     display: flex; 
     justify-content: space-evenly;
@@ -386,7 +384,7 @@ label {
     padding-bottom: 3%;
 }
 
-/* layering concert imgs */
+/* layer concert visuals */
 .concert-stage .bg {
     z-index: 1;
 }
@@ -405,7 +403,7 @@ label {
     width: 10%;
     transition: all 0.5s ease;
     z-index: 4;
-    cursor: pointer;
+    cursor: pointer; /* cursor changes on hover */
 }
 #starClicker.shrink
 {
@@ -413,6 +411,7 @@ label {
     width: 5%;
 }
 
+/* spinning star anim keyframes */
 @keyframes starFrames{
     0%{rotate:0deg}
     12%{rotate:45deg}
@@ -431,11 +430,12 @@ label {
   color: gold;
   font-size: 1.2rem;
   font-weight: bold;
-  pointer-events: none;
+  pointer-events: none; /* wont be affected by clicks */
   animation: floatUp 0.8s ease-out forwards;
   z-index: 5;
 }
 
+/* floating star point anim keyframes */
 @keyframes floatUp {
   0% {
     opacity: 1;
@@ -460,6 +460,7 @@ label {
   background-color: antiquewhite;
 }
 
+/* inserts cyan colour before timer bar to fill it */
 #timerBar::before {
   content: '';
   display: block;
@@ -469,12 +470,13 @@ label {
   animation: countdown 10s linear forwards;
 }
 
+/* timer bar anim keyframes */
 @keyframes countdown {
   from { width: 100%; }
   to { width: 0%; }
 }
 
-
+/* popup anim keyframes */
 @keyframes popupFadeIn {
   0% {
     opacity: 0;
@@ -550,7 +552,7 @@ label {
   font-size: 1em;
   font-weight: bold;
   padding: 0.3em 0.6em;
-  cursor: pointer;
+  cursor: pointer; /* cursor changes on hover */
 }
 
 .closebtn:hover {
@@ -569,10 +571,12 @@ footer a, footer p {
     font-size: 1.2em;
 }
 
-/*CSS for responsive menu*/
+/* CSS for responsive menu */
 #hamIcon{display:none;}
 
 @media screen and (max-width:800px){
+    
+    /* prevent horizontal scrolling */
     body {
         overflow-x: hidden;
     }
@@ -611,6 +615,7 @@ footer a, footer p {
         display:none;
     }
     /* show the menu */
+    /* grid container for page buttons */
     nav ul.menuShow {
         display: grid;
         grid-template-columns: 50% 50%;
